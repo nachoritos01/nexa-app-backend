@@ -1,0 +1,53 @@
+# Dependencies (installed during build)
+node_modules/
+vendor/
+
+# Environment files
+.env
+.env.backup
+.env.production
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Testing
+tests/
+phpunit.xml
+.phpunit.cache/
+.phpunit.result.cache
+
+# Documentation
+docs/
+README.md
+CLAUDE.md
+*.md
+
+# Development tools
+.php-cs-fixer.cache
+phpstan.neon
+_ide_helper.php
+_ide_helper_models.php
+.phpstorm.meta.php
+
+# Storage (rebuilt at runtime)
+storage/logs/*
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose*.yml
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,50 @@
+# Dependencies
+vendor/
+node_modules/
+
+# Build outputs
+public/build/
+public/hot
+storage/framework/
+
+# Cache
+bootstrap/cache/
+.phpunit.cache/
+.php-cs-fixer.cache
+
+# Logs
+storage/logs/
+*.log
+.claude/logs/sessions/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.*
+
+# Large files
+*.zip
+*.tar.gz
+*.sql
+*.dump
+backups/
+
+# Lock files
+composer.lock
+
+# Test coverage
+coverage/
+
+# IDE Helper generated
+_ide_helper.php
+_ide_helper_models.php
+.phpstorm.meta.php

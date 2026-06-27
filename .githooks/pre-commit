@@ -1,0 +1,47 @@
+#!/bin/bash
+# Pre-commit hook: CS Fixer (auto-fix) + PHPStan
+# Prevents pushing code that fails CI
+
+set -e
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+# Get staged PHP files only
+STAGED_PHP=$(git diff --cached --name-only --diff-filter=ACM | grep '\.php$' || true)
+
+if [ -z "$STAGED_PHP" ]; then
+    exit 0
+fi
+
+echo -e "${YELLOW}[pre-commit]${NC} Running checks on staged PHP files..."
+
+# 1. PHP CS Fixer — auto-fix staged files and re-stage
+echo -e "${YELLOW}[CS Fixer]${NC} Formatting..."
+for FILE in $STAGED_PHP; do
+    if [ -f "$FILE" ]; then
+        ./vendor/bin/php-cs-fixer fix "$FILE" --quiet 2>/dev/null || true
+        git add "$FILE"
+    fi
+done
+echo -e "${GREEN}[CS Fixer]${NC} Done."
+
+# 2. PHPStan — analyse only staged files
+echo -e "${YELLOW}[PHPStan]${NC} Analysing..."
+STAGED_APP=$(echo "$STAGED_PHP" | grep '^app/' || true)
+
+if [ -n "$STAGED_APP" ]; then
+    echo "$STAGED_APP" | xargs ./vendor/bin/phpstan analyse --memory-limit=512M --no-progress 2>&1
+    if [ $? -ne 0 ]; then
+        echo -e "${RED}[PHPStan]${NC} Analysis failed. Fix errors before committing."
+        exit 1
+    fi
+    echo -e "${GREEN}[PHPStan]${NC} Passed."
+else
+    echo -e "${GREEN}[PHPStan]${NC} No app/ files to analyse."
+fi
+
+echo -e "${GREEN}[pre-commit]${NC} All checks passed."

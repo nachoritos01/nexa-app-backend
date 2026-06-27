@@ -1,0 +1,22 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+    - phpstan-baseline.neon
+
+parameters:
+    paths:
+        - app/
+
+    # Nivel de análisis (0-9, donde 9 es el más estricto)
+    # Recomendado empezar en 5 e ir subiendo
+    level: 5
+
+    ignoreErrors:
+        # Ignorar errores específicos si es necesario
+        # - '#Call to an undefined method#'
+
+    excludePaths:
+        # Agregar paths a excluir si es necesario
+        # - app/Http/Middleware/SomeMiddleware.php
+
+    # Configuración para Laravel
+    treatPhpDocTypesAsCertain: false
