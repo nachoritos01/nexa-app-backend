@@ -27,22 +27,33 @@ class ClientController extends Controller
         return (new ClientResource($client))->response()->setStatusCode(201);
     }
 
-    public function show(Client $client): ClientResource
+    public function show(string $client): ClientResource
     {
-        return new ClientResource($client);
+        return new ClientResource($this->findScoped($client));
     }
 
-    public function update(UpdateClientRequest $request, Client $client): ClientResource
+    public function update(UpdateClientRequest $request, string $client): ClientResource
     {
-        $client->update($request->mapped());
+        $model = $this->findScoped($client);
+        $model->update($request->mapped());
 
-        return new ClientResource($client);
+        return new ClientResource($model);
     }
 
-    public function destroy(Client $client): Response
+    public function destroy(string $client): Response
     {
-        $client->delete();
+        $this->findScoped($client)->delete();
 
         return response()->noContent();
+    }
+
+    /**
+     * Resolve a client by id inside the request lifecycle, where the tenant is
+     * already set, so the BelongsToTenant global scope always applies. This avoids
+     * relying on route-model binding running after the tenant middleware.
+     */
+    private function findScoped(string $id): Client
+    {
+        return Client::query()->findOrFail($id);
     }
 }
