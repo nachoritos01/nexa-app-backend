@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Agency\ClientController as AgencyClientController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ContentController;
 use App\Http\Controllers\Api\HealthController;
@@ -77,3 +78,11 @@ if (hasModule('api')) {
         Route::get('dashboard/stats', [V1DashboardController::class, 'stats']);
     });
 }
+
+// ==================
+// Agency module (internal admin panel)
+// Auth + tenant-scoped, but NOT behind the Pro gate (first-party endpoints).
+// ==================
+Route::prefix('agency')->middleware(['auth:sanctum', 'api.tenant', 'throttle:api-tenant'])->group(function () {
+    Route::apiResource('clients', AgencyClientController::class);
+});
