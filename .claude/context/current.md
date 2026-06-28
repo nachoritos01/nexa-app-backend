@@ -65,5 +65,15 @@ All 14 issues resolved and documented in `docs/features/31-44` (all `.done.md`).
 | `develop` | Integration | Stable — all PRs merged, v1.2.0 |
 | `bugfix/fix-impersonate-session` | Fix stale password_hash_web on impersonation | Ready for PR |
 
+## Workspace Note (2026-06-27)
+
+This backend is one of three independent git repos under the `nexa/` workspace. On 2026-06-27 the
+two sibling Next.js apps received the same AI context system this repo already uses:
+- `../nexa-digital-studio-landing/` (Next.js 16, next-intl) — `tsc --noEmit` green.
+- `../panel-administrativo-nexa-digital/` (Next.js 16, client-side reducer + localStorage) — has
+  ~360 pre-existing TS errors tracked as their tech debt #1.
+
+No changes were made to this repo's code or its existing context docs; this note is informational.
+
 ---
 *Update this file at the start and end of each development session.*
