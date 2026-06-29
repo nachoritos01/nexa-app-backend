@@ -38,8 +38,9 @@ Complete documentation index for the Generic Multi-Tenant SaaS Template.
 
 | Doc | Description |
 |-----|-------------|
-| [API Reference](api-reference.md) | Complete API endpoints with examples |
-| [API v1 Reference](api/v1-reference.md) | V1 API detailed reference |
+| [API Reference](api-reference.md) | Public API endpoints with examples |
+| [API v1 Reference](api/v1-reference.md) | V1 (e-commerce) API detailed reference |
+| [Agency API Reference](api/agency-reference.md) | **Agency module API** (admin panel :3001) — auth, CRUD, per-resource fields. Interactive docs (Scribe) at `/docs` · OpenAPI `/docs.openapi` · Postman `/docs.postman` |
 | [Design System](design-system.md) | Color palette, gradients, UI/UX components |
 | [Filament Guide](filament-guide.md) | Filament panel guide |
 | [Claude Context Guide](claude-context-guide.md) | How to use Claude context files |

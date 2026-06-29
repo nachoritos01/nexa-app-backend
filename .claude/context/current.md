@@ -1,7 +1,7 @@
 # Current Development Context
 
-**Last Updated:** 2026-03-16
-**Branch:** develop (bugfix/fix-impersonate-session pending PR)
+**Last Updated:** 2026-06-28
+**Branch:** feature/agency-full-domain (Agency API module — see note below)
 **Latest Release:** v1.2.0
 **Tests:** 348 tests, 889 assertions — ALL PASSING (0 failures)
 **PHPStan:** Level 5, 0 errors (baseline — larastan false positives)
@@ -17,6 +17,7 @@
 | **Audit Remediation** | **COMPLETE** | 14/14 findings resolved (PR #7 + PR #8, v1.1.1 + v1.2.0) |
 | **SaaS Infrastructure** | Retained | Multi-tenant, billing, onboarding, referrals, RBAC |
 | **Impersonate Session Fix** | **IN PROGRESS** | Fix #45 — stale `password_hash_web` broke impersonation |
+| **Agency API Module** | **NEW (2026-06-28)** | Tenant-scoped `/api/agency/*` for the admin panel (:3001); see note below |
 
 ## Audit Findings (from /audit all — 2026-03-16)
 
@@ -64,6 +65,8 @@ All 14 issues resolved and documented in `docs/features/31-44` (all `.done.md`).
 |--------|---------|--------|
 | `develop` | Integration | Stable — all PRs merged, v1.2.0 |
 | `bugfix/fix-impersonate-session` | Fix stale password_hash_web on impersonation | Ready for PR |
+| `feature/agency-clients-api` | Agency clients slice + hardening | Pushed (superseded by full-domain) |
+| `feature/agency-full-domain` | Full agency module (8 entities + settings) + seeder + API docs | **Active**, pushed |
 
 ## Workspace Note (2026-06-27)
 
@@ -74,6 +77,29 @@ two sibling Next.js apps received the same AI context system this repo already u
   ~360 pre-existing TS errors tracked as their tech debt #1.
 
 No changes were made to this repo's code or its existing context docs; this note is informational.
+
+## Agency API Module (2026-06-28) — branch `feature/agency-full-domain`
+
+Built a **tenant-scoped agency domain** so the admin panel (`../panel-administrativo-nexa-digital`,
+:3001) persists to Postgres instead of localStorage. This is **separate** from the e-commerce v1 API.
+
+- **Tables/models:** `agency_*` (UUID PK, `BelongsToTenant`), namespaced `App\Models\Agency\*`:
+  Client, Project, Service, Supplier, TeamMember, Quote, Invoice, Expense + a per-tenant
+  `AgencySetting` singleton. Embedded collections (tasks, items, teamMembers…) stored as `jsonb`;
+  reference ids as strings; money/numbers cast to float.
+- **Endpoints:** `Route::prefix('agency')->middleware(['auth:sanctum','api.tenant','throttle:api-tenant'])`
+  (no Pro gate) — `apiResource` per entity + `GET/PUT settings`. The panel logs in via
+  `POST /api/auth/login` and sends `Authorization: Bearer` + `X-Tenant-ID`.
+- **Generic base:** `AgencyCrudController` (index/show/destroy + `create()` which `refresh()`es so
+  the response carries the full row), `AgencyFormRequest` (camelCase↔snake_case `mapped()`),
+  `AgencyResource` (camelCase output, `[]` for null array columns). Tenant-safe lookups via
+  `findScoped()` because `SubstituteBindings` runs **before** `api.tenant` (implicit binding would
+  leak cross-tenant).
+- **Seeder:** `AgencyDemoSeeder` (idempotent, cross-referenced demo data).
+- **Docs:** [`docs/api/agency-reference.md`](../../docs/api/agency-reference.md) + **Scribe**
+  (`knuckleswtf/scribe`, dev) configured for `api/agency/*` + `api/auth/*` → interactive docs at
+  `/docs`, OpenAPI at `/docs.openapi`, Postman at `/docs.postman`. Rebuild: `php artisan scribe:generate`.
+- **Gates:** PHPStan level 5 = 0 on the module. CRUD verified end-to-end from the panel.
 
 ---
 *Update this file at the start and end of each development session.*
