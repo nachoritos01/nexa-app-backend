@@ -16,16 +16,11 @@ class SupplierController extends AgencyCrudController
 
     public function store(SupplierRequest $request): JsonResponse
     {
-        $supplier = Supplier::create($request->mapped());
-
-        return (new AgencyResource($supplier))->response()->setStatusCode(201);
+        return $this->create($request->mapped());
     }
 
     public function update(SupplierRequest $request, string $id): AgencyResource
     {
-        $supplier = $this->find($id);
-        $supplier->update($request->mapped());
-
-        return new AgencyResource($supplier);
+        return $this->modify($id, $request->mapped());
     }
 }

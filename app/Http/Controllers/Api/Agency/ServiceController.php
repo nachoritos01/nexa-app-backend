@@ -16,16 +16,11 @@ class ServiceController extends AgencyCrudController
 
     public function store(ServiceRequest $request): JsonResponse
     {
-        $service = Service::create($request->mapped());
-
-        return (new AgencyResource($service))->response()->setStatusCode(201);
+        return $this->create($request->mapped());
     }
 
     public function update(ServiceRequest $request, string $id): AgencyResource
     {
-        $service = $this->find($id);
-        $service->update($request->mapped());
-
-        return new AgencyResource($service);
+        return $this->modify($id, $request->mapped());
     }
 }

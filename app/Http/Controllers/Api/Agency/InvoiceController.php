@@ -16,16 +16,11 @@ class InvoiceController extends AgencyCrudController
 
     public function store(InvoiceRequest $request): JsonResponse
     {
-        $invoice = Invoice::create($request->mapped());
-
-        return (new AgencyResource($invoice))->response()->setStatusCode(201);
+        return $this->create($request->mapped());
     }
 
     public function update(InvoiceRequest $request, string $id): AgencyResource
     {
-        $invoice = $this->find($id);
-        $invoice->update($request->mapped());
-
-        return new AgencyResource($invoice);
+        return $this->modify($id, $request->mapped());
     }
 }

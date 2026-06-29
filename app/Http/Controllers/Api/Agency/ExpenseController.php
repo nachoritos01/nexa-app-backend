@@ -16,16 +16,11 @@ class ExpenseController extends AgencyCrudController
 
     public function store(ExpenseRequest $request): JsonResponse
     {
-        $expense = Expense::create($request->mapped());
-
-        return (new AgencyResource($expense))->response()->setStatusCode(201);
+        return $this->create($request->mapped());
     }
 
     public function update(ExpenseRequest $request, string $id): AgencyResource
     {
-        $expense = $this->find($id);
-        $expense->update($request->mapped());
-
-        return new AgencyResource($expense);
+        return $this->modify($id, $request->mapped());
     }
 }

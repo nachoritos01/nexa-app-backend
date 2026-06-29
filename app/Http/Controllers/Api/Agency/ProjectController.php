@@ -17,16 +17,11 @@ class ProjectController extends AgencyCrudController
 
     public function store(StoreProjectRequest $request): JsonResponse
     {
-        $project = Project::create($request->mapped());
-
-        return (new AgencyResource($project))->response()->setStatusCode(201);
+        return $this->create($request->mapped());
     }
 
     public function update(UpdateProjectRequest $request, string $id): AgencyResource
     {
-        $project = $this->find($id);
-        $project->update($request->mapped());
-
-        return new AgencyResource($project);
+        return $this->modify($id, $request->mapped());
     }
 }

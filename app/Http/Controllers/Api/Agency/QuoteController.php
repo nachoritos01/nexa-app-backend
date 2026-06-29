@@ -16,16 +16,11 @@ class QuoteController extends AgencyCrudController
 
     public function store(QuoteRequest $request): JsonResponse
     {
-        $quote = Quote::create($request->mapped());
-
-        return (new AgencyResource($quote))->response()->setStatusCode(201);
+        return $this->create($request->mapped());
     }
 
     public function update(QuoteRequest $request, string $id): AgencyResource
     {
-        $quote = $this->find($id);
-        $quote->update($request->mapped());
-
-        return new AgencyResource($quote);
+        return $this->modify($id, $request->mapped());
     }
 }

@@ -16,16 +16,11 @@ class TeamMemberController extends AgencyCrudController
 
     public function store(TeamMemberRequest $request): JsonResponse
     {
-        $member = TeamMember::create($request->mapped());
-
-        return (new AgencyResource($member))->response()->setStatusCode(201);
+        return $this->create($request->mapped());
     }
 
     public function update(TeamMemberRequest $request, string $id): AgencyResource
     {
-        $member = $this->find($id);
-        $member->update($request->mapped());
-
-        return new AgencyResource($member);
+        return $this->modify($id, $request->mapped());
     }
 }

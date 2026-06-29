@@ -22,7 +22,7 @@ class ClientController extends Controller
 
     public function store(StoreClientRequest $request): JsonResponse
     {
-        $client = Client::create($request->mapped());
+        $client = Client::create($request->mapped())->refresh();
 
         return (new ClientResource($client))->response()->setStatusCode(201);
     }

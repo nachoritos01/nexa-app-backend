@@ -23,7 +23,10 @@ class SettingsController extends Controller
 
     public function update(SettingsRequest $request): JsonResponse
     {
-        $setting = AgencySetting::query()->firstOrNew([]);
+        // createOrFirst is race-safe: on a concurrent insert it catches the
+        // unique(tenant_id) violation and re-selects instead of 500-ing.
+        // tenant_id is set by the BelongsToTenant trait + global scope.
+        $setting = AgencySetting::createOrFirst([]);
         $setting->data = array_merge($setting->data ?? [], $request->validated());
         $setting->save();
 
