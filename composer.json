@@ -23,6 +23,7 @@
         "barryvdh/laravel-ide-helper": "^3.6",
         "fakerphp/faker": "^1.23",
         "friendsofphp/php-cs-fixer": "^3.94",
+        "knuckleswtf/scribe": "^5.11",
         "larastan/larastan": "^3.9",
         "laravel/pail": "^1.2.2",
         "laravel/pint": "^1.24",
