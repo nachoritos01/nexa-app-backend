@@ -5,7 +5,6 @@ namespace App\Console\Commands;
 use App\Models\FeatureUsage;
 use App\Models\Order;
 use App\Models\Tenant;
-use App\Models\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
 
