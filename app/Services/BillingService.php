@@ -5,7 +5,6 @@ namespace App\Services;
 use App\Enums\PlanType;
 use App\Events\PlanChanged;
 use App\Models\Tenant;
-use Illuminate\Http\RedirectResponse;
 
 class BillingService
 {

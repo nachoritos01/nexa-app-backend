@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Agency\ClientController as AgencyClientController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ContentController;
 use App\Http\Controllers\Api\HealthController;
@@ -77,3 +78,20 @@ if (hasModule('api')) {
         Route::get('dashboard/stats', [V1DashboardController::class, 'stats']);
     });
 }
+
+// ==================
+// Agency module (internal admin panel)
+// Auth + tenant-scoped, but NOT behind the Pro gate (first-party endpoints).
+// ==================
+Route::prefix('agency')->middleware(['auth:sanctum', 'api.tenant', 'throttle:api-tenant'])->group(function () {
+    Route::apiResource('clients', AgencyClientController::class);
+    Route::apiResource('projects', \App\Http\Controllers\Api\Agency\ProjectController::class);
+    Route::apiResource('services', \App\Http\Controllers\Api\Agency\ServiceController::class);
+    Route::apiResource('suppliers', \App\Http\Controllers\Api\Agency\SupplierController::class);
+    Route::apiResource('team', \App\Http\Controllers\Api\Agency\TeamMemberController::class);
+    Route::apiResource('quotes', \App\Http\Controllers\Api\Agency\QuoteController::class);
+    Route::apiResource('invoices', \App\Http\Controllers\Api\Agency\InvoiceController::class);
+    Route::apiResource('expenses', \App\Http\Controllers\Api\Agency\ExpenseController::class);
+    Route::get('settings', [\App\Http\Controllers\Api\Agency\SettingsController::class, 'show']);
+    Route::put('settings', [\App\Http\Controllers\Api\Agency\SettingsController::class, 'update']);
+});

@@ -1,0 +1,4961 @@
+name: Endpoints
+description: ''
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/auth/login
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: Login.
+      description: |-
+        Public endpoint: exchange email + password for a Bearer token. Use the
+        returned token (and a tenant id from `tenants`) for the agency endpoints.
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        custom: []
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: gbailey@example.net
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      password:
+        custom: []
+        name: password
+        description: ''
+        required: true
+        example: '|]|{+-'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      device_name:
+        custom: []
+        name: device_name
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: v
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      email: gbailey@example.net
+      password: '|]|{+-'
+      device_name: v
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"error":"Invalid credentials.","code":"INVALID_CREDENTIALS"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/auth/me
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/auth/logout
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/auth/push-token
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      push_token:
+        custom: []
+        name: push_token
+        description: 'Must not be greater than 500 characters.'
+        required: true
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      push_token: b
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/agency/clients
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/agency/clients
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      contactName:
+        custom: []
+        name: contactName
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      telefono:
+        custom: []
+        name: telefono
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: g
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      email:
+        custom: []
+        name: email
+        description: 'Must be a valid email address. Must not be greater than 255 characters.'
+        required: false
+        example: rowan.gulgowski@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      sitioWeb:
+        custom: []
+        name: sitioWeb
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: d
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      industria:
+        custom: []
+        name: industria
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: l
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      tipo:
+        custom: []
+        name: tipo
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: j
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      origen:
+        custom: []
+        name: origen
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      estado:
+        custom: []
+        name: estado
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: i
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      etapaPipeline:
+        custom: []
+        name: etapaPipeline
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: k
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      notas:
+        custom: []
+        name: notas
+        description: 'Must not be greater than 5000 characters.'
+        required: false
+        example: h
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      rating:
+        custom: []
+        name: rating
+        description: 'Must be at least 0. Must not be greater than 5.'
+        required: false
+        example: 3
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      valorPotencial:
+        custom: []
+        name: valorPotencial
+        description: 'Must be at least 0.'
+        required: false
+        example: 39
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      logo:
+        custom: []
+        name: logo
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      direccion:
+        custom: []
+        name: direccion
+        description: 'Must not be greater than 500 characters.'
+        required: false
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      rfc:
+        custom: []
+        name: rfc
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: g
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      name: b
+      contactName: 'n'
+      telefono: g
+      email: rowan.gulgowski@example.com
+      sitioWeb: d
+      industria: l
+      tipo: j
+      origen: 'n'
+      estado: i
+      etapaPipeline: k
+      notas: h
+      rating: 3
+      valorPotencial: 39
+      logo: architecto
+      direccion: 'n'
+      rfc: g
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/agency/clients/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the client.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/agency/clients/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the client.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      contactName:
+        custom: []
+        name: contactName
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      telefono:
+        custom: []
+        name: telefono
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: g
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      email:
+        custom: []
+        name: email
+        description: 'Must be a valid email address. Must not be greater than 255 characters.'
+        required: false
+        example: rowan.gulgowski@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      sitioWeb:
+        custom: []
+        name: sitioWeb
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: d
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      industria:
+        custom: []
+        name: industria
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: l
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      tipo:
+        custom: []
+        name: tipo
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: j
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      origen:
+        custom: []
+        name: origen
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      estado:
+        custom: []
+        name: estado
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: i
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      etapaPipeline:
+        custom: []
+        name: etapaPipeline
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: k
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      notas:
+        custom: []
+        name: notas
+        description: 'Must not be greater than 5000 characters.'
+        required: false
+        example: h
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      rating:
+        custom: []
+        name: rating
+        description: 'Must be at least 0. Must not be greater than 5.'
+        required: false
+        example: 3
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      valorPotencial:
+        custom: []
+        name: valorPotencial
+        description: 'Must be at least 0.'
+        required: false
+        example: 39
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      logo:
+        custom: []
+        name: logo
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      direccion:
+        custom: []
+        name: direccion
+        description: 'Must not be greater than 500 characters.'
+        required: false
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      rfc:
+        custom: []
+        name: rfc
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: g
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      name: b
+      contactName: 'n'
+      telefono: g
+      email: rowan.gulgowski@example.com
+      sitioWeb: d
+      industria: l
+      tipo: j
+      origen: 'n'
+      estado: i
+      etapaPipeline: k
+      notas: h
+      rating: 3
+      valorPotencial: 39
+      logo: architecto
+      direccion: 'n'
+      rfc: g
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/agency/clients/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the client.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/agency/projects
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/agency/projects
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      description:
+        custom: []
+        name: description
+        description: ''
+        required: false
+        example: 'Eius et animi quos velit et.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      clientId:
+        custom: []
+        name: clientId
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      type:
+        custom: []
+        name: type
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: g
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      priority:
+        custom: []
+        name: priority
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: z
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      budget:
+        custom: []
+        name: budget
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      startDate:
+        custom: []
+        name: startDate
+        description: 'Must not be greater than 30 characters.'
+        required: false
+        example: m
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      endDate:
+        custom: []
+        name: endDate
+        description: 'Must not be greater than 30 characters.'
+        required: false
+        example: i
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      teamMembers:
+        custom: []
+        name: teamMembers
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      tasks:
+        custom: []
+        name: tasks
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      progress:
+        custom: []
+        name: progress
+        description: 'Must be at least 0. Must not be greater than 100.'
+        required: false
+        example: 8
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      comments:
+        custom: []
+        name: comments
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      files:
+        custom: []
+        name: files
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      name: b
+      description: 'Eius et animi quos velit et.'
+      clientId: architecto
+      type: 'n'
+      status: g
+      priority: z
+      budget: 4326.41688
+      startDate: m
+      endDate: i
+      progress: 8
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/agency/projects/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the project.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/agency/projects/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the project.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      description:
+        custom: []
+        name: description
+        description: ''
+        required: false
+        example: 'Eius et animi quos velit et.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      clientId:
+        custom: []
+        name: clientId
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      type:
+        custom: []
+        name: type
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: g
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      priority:
+        custom: []
+        name: priority
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: z
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      budget:
+        custom: []
+        name: budget
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      startDate:
+        custom: []
+        name: startDate
+        description: 'Must not be greater than 30 characters.'
+        required: false
+        example: m
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      endDate:
+        custom: []
+        name: endDate
+        description: 'Must not be greater than 30 characters.'
+        required: false
+        example: i
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      teamMembers:
+        custom: []
+        name: teamMembers
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      tasks:
+        custom: []
+        name: tasks
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      progress:
+        custom: []
+        name: progress
+        description: 'Must be at least 0. Must not be greater than 100.'
+        required: false
+        example: 8
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      comments:
+        custom: []
+        name: comments
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      files:
+        custom: []
+        name: files
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      name: b
+      description: 'Eius et animi quos velit et.'
+      clientId: architecto
+      type: 'n'
+      status: g
+      priority: z
+      budget: 4326.41688
+      startDate: m
+      endDate: i
+      progress: 8
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/agency/projects/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the project.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/agency/services
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/agency/services
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      description:
+        custom: []
+        name: description
+        description: ''
+        required: false
+        example: 'Eius et animi quos velit et.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      category:
+        custom: []
+        name: category
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: v
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      basePrice:
+        custom: []
+        name: basePrice
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      estimatedHours:
+        custom: []
+        name: estimatedHours
+        description: 'Must be at least 0.'
+        required: false
+        example: 77
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      isActive:
+        custom: []
+        name: isActive
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      name: b
+      description: 'Eius et animi quos velit et.'
+      category: v
+      basePrice: 4326.41688
+      estimatedHours: 77
+      isActive: false
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/agency/services/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the service.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/agency/services/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the service.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      description:
+        custom: []
+        name: description
+        description: ''
+        required: false
+        example: 'Eius et animi quos velit et.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      category:
+        custom: []
+        name: category
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: v
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      basePrice:
+        custom: []
+        name: basePrice
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      estimatedHours:
+        custom: []
+        name: estimatedHours
+        description: 'Must be at least 0.'
+        required: false
+        example: 77
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      isActive:
+        custom: []
+        name: isActive
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      name: b
+      description: 'Eius et animi quos velit et.'
+      category: v
+      basePrice: 4326.41688
+      estimatedHours: 77
+      isActive: true
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/agency/services/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the service.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/agency/suppliers
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/agency/suppliers
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      email:
+        custom: []
+        name: email
+        description: 'Must be a valid email address. Must not be greater than 255 characters.'
+        required: false
+        example: zbailey@example.net
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      phone:
+        custom: []
+        name: phone
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: i
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      contactName:
+        custom: []
+        name: contactName
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: 'y'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      category:
+        custom: []
+        name: category
+        description: 'Must not be greater than 100 characters.'
+        required: false
+        example: v
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      address:
+        custom: []
+        name: address
+        description: 'Must not be greater than 500 characters.'
+        required: false
+        example: d
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      website:
+        custom: []
+        name: website
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: l
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      taxId:
+        custom: []
+        name: taxId
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: j
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      notes:
+        custom: []
+        name: notes
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      isActive:
+        custom: []
+        name: isActive
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      name: b
+      email: zbailey@example.net
+      phone: i
+      contactName: 'y'
+      category: v
+      address: d
+      website: l
+      taxId: j
+      notes: architecto
+      isActive: false
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/agency/suppliers/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the supplier.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/agency/suppliers/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the supplier.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      email:
+        custom: []
+        name: email
+        description: 'Must be a valid email address. Must not be greater than 255 characters.'
+        required: false
+        example: zbailey@example.net
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      phone:
+        custom: []
+        name: phone
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: i
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      contactName:
+        custom: []
+        name: contactName
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: 'y'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      category:
+        custom: []
+        name: category
+        description: 'Must not be greater than 100 characters.'
+        required: false
+        example: v
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      address:
+        custom: []
+        name: address
+        description: 'Must not be greater than 500 characters.'
+        required: false
+        example: d
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      website:
+        custom: []
+        name: website
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: l
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      taxId:
+        custom: []
+        name: taxId
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: j
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      notes:
+        custom: []
+        name: notes
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      isActive:
+        custom: []
+        name: isActive
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      name: b
+      email: zbailey@example.net
+      phone: i
+      contactName: 'y'
+      category: v
+      address: d
+      website: l
+      taxId: j
+      notes: architecto
+      isActive: false
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/agency/suppliers/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the supplier.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/agency/team
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/agency/team
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      email:
+        custom: []
+        name: email
+        description: 'Must be a valid email address. Must not be greater than 255 characters.'
+        required: false
+        example: zbailey@example.net
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      phone:
+        custom: []
+        name: phone
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: i
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      role:
+        custom: []
+        name: role
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: 'y'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      department:
+        custom: []
+        name: department
+        description: 'Must not be greater than 100 characters.'
+        required: false
+        example: v
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      salary:
+        custom: []
+        name: salary
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      avatar:
+        custom: []
+        name: avatar
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      isActive:
+        custom: []
+        name: isActive
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      name: b
+      email: zbailey@example.net
+      phone: i
+      role: 'y'
+      department: v
+      salary: 4326.41688
+      avatar: architecto
+      isActive: false
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/agency/team/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the team.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/agency/team/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the team.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      email:
+        custom: []
+        name: email
+        description: 'Must be a valid email address. Must not be greater than 255 characters.'
+        required: false
+        example: zbailey@example.net
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      phone:
+        custom: []
+        name: phone
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: i
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      role:
+        custom: []
+        name: role
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: 'y'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      department:
+        custom: []
+        name: department
+        description: 'Must not be greater than 100 characters.'
+        required: false
+        example: v
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      salary:
+        custom: []
+        name: salary
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      avatar:
+        custom: []
+        name: avatar
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      isActive:
+        custom: []
+        name: isActive
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      name: b
+      email: zbailey@example.net
+      phone: i
+      role: 'y'
+      department: v
+      salary: 4326.41688
+      avatar: architecto
+      isActive: true
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/agency/team/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the team.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/agency/quotes
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/agency/quotes
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      number:
+        custom: []
+        name: number
+        description: 'Must not be greater than 50 characters.'
+        required: true
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      clientId:
+        custom: []
+        name: clientId
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      date:
+        custom: []
+        name: date
+        description: 'Must not be greater than 30 characters.'
+        required: false
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      validUntil:
+        custom: []
+        name: validUntil
+        description: 'Must not be greater than 30 characters.'
+        required: false
+        example: g
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: z
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      items:
+        custom: []
+        name: items
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      discount:
+        custom: []
+        name: discount
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      tax:
+        custom: []
+        name: tax
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      subtotal:
+        custom: []
+        name: subtotal
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      total:
+        custom: []
+        name: total
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      terms:
+        custom: []
+        name: terms
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      notes:
+        custom: []
+        name: notes
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      number: b
+      clientId: architecto
+      date: 'n'
+      validUntil: g
+      status: z
+      discount: 4326.41688
+      tax: 4326.41688
+      subtotal: 4326.41688
+      total: 4326.41688
+      terms: architecto
+      notes: architecto
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/agency/quotes/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the quote.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/agency/quotes/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the quote.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      number:
+        custom: []
+        name: number
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      clientId:
+        custom: []
+        name: clientId
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      date:
+        custom: []
+        name: date
+        description: 'Must not be greater than 30 characters.'
+        required: false
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      validUntil:
+        custom: []
+        name: validUntil
+        description: 'Must not be greater than 30 characters.'
+        required: false
+        example: g
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: z
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      items:
+        custom: []
+        name: items
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      discount:
+        custom: []
+        name: discount
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      tax:
+        custom: []
+        name: tax
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      subtotal:
+        custom: []
+        name: subtotal
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      total:
+        custom: []
+        name: total
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      terms:
+        custom: []
+        name: terms
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      notes:
+        custom: []
+        name: notes
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      number: b
+      clientId: architecto
+      date: 'n'
+      validUntil: g
+      status: z
+      discount: 4326.41688
+      tax: 4326.41688
+      subtotal: 4326.41688
+      total: 4326.41688
+      terms: architecto
+      notes: architecto
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/agency/quotes/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the quote.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/agency/invoices
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/agency/invoices
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      number:
+        custom: []
+        name: number
+        description: 'Must not be greater than 50 characters.'
+        required: true
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      clientId:
+        custom: []
+        name: clientId
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      projectId:
+        custom: []
+        name: projectId
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      quoteId:
+        custom: []
+        name: quoteId
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      date:
+        custom: []
+        name: date
+        description: 'Must not be greater than 30 characters.'
+        required: false
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      dueDate:
+        custom: []
+        name: dueDate
+        description: 'Must not be greater than 30 characters.'
+        required: false
+        example: g
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: z
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      items:
+        custom: []
+        name: items
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      subtotal:
+        custom: []
+        name: subtotal
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      tax:
+        custom: []
+        name: tax
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      total:
+        custom: []
+        name: total
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      notes:
+        custom: []
+        name: notes
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      number: b
+      clientId: architecto
+      projectId: architecto
+      quoteId: architecto
+      date: 'n'
+      dueDate: g
+      status: z
+      subtotal: 4326.41688
+      tax: 4326.41688
+      total: 4326.41688
+      notes: architecto
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/agency/invoices/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the invoice.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/agency/invoices/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the invoice.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      number:
+        custom: []
+        name: number
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      clientId:
+        custom: []
+        name: clientId
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      projectId:
+        custom: []
+        name: projectId
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      quoteId:
+        custom: []
+        name: quoteId
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      date:
+        custom: []
+        name: date
+        description: 'Must not be greater than 30 characters.'
+        required: false
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      dueDate:
+        custom: []
+        name: dueDate
+        description: 'Must not be greater than 30 characters.'
+        required: false
+        example: g
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: z
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      items:
+        custom: []
+        name: items
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      subtotal:
+        custom: []
+        name: subtotal
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      tax:
+        custom: []
+        name: tax
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      total:
+        custom: []
+        name: total
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      notes:
+        custom: []
+        name: notes
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      number: b
+      clientId: architecto
+      projectId: architecto
+      quoteId: architecto
+      date: 'n'
+      dueDate: g
+      status: z
+      subtotal: 4326.41688
+      tax: 4326.41688
+      total: 4326.41688
+      notes: architecto
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/agency/invoices/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the invoice.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/agency/expenses
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/agency/expenses
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      description:
+        custom: []
+        name: description
+        description: 'Must not be greater than 1000 characters.'
+        required: true
+        example: 'Eius et animi quos velit et.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      amount:
+        custom: []
+        name: amount
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      category:
+        custom: []
+        name: category
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: m
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      date:
+        custom: []
+        name: date
+        description: 'Must not be greater than 30 characters.'
+        required: false
+        example: i
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: 'y'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      supplierId:
+        custom: []
+        name: supplierId
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      projectId:
+        custom: []
+        name: projectId
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      notes:
+        custom: []
+        name: notes
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      description: 'Eius et animi quos velit et.'
+      amount: 4326.41688
+      category: m
+      date: i
+      status: 'y'
+      supplierId: architecto
+      projectId: architecto
+      notes: architecto
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/agency/expenses/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the expense.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/agency/expenses/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the expense.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      description:
+        custom: []
+        name: description
+        description: 'Must not be greater than 1000 characters.'
+        required: false
+        example: 'Eius et animi quos velit et.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      amount:
+        custom: []
+        name: amount
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      category:
+        custom: []
+        name: category
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: m
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      date:
+        custom: []
+        name: date
+        description: 'Must not be greater than 30 characters.'
+        required: false
+        example: i
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: 'y'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      supplierId:
+        custom: []
+        name: supplierId
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      projectId:
+        custom: []
+        name: projectId
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      notes:
+        custom: []
+        name: notes
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      description: 'Eius et animi quos velit et.'
+      amount: 4326.41688
+      category: m
+      date: i
+      status: 'y'
+      supplierId: architecto
+      projectId: architecto
+      notes: architecto
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/agency/expenses/{id}'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the expense.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/agency/settings
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: api/agency/settings
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      companyName:
+        custom: []
+        name: companyName
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      companyEmail:
+        custom: []
+        name: companyEmail
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: zbailey@example.net
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      companyPhone:
+        custom: []
+        name: companyPhone
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: i
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      companyAddress:
+        custom: []
+        name: companyAddress
+        description: 'Must not be greater than 500 characters.'
+        required: false
+        example: 'y'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      companyWebsite:
+        custom: []
+        name: companyWebsite
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: v
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      taxId:
+        custom: []
+        name: taxId
+        description: 'Must not be greater than 50 characters.'
+        required: false
+        example: d
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      logo:
+        custom: []
+        name: logo
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      defaultTax:
+        custom: []
+        name: defaultTax
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      defaultPaymentTerms:
+        custom: []
+        name: defaultPaymentTerms
+        description: ''
+        required: false
+        example: 4326.41688
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      invoicePrefix:
+        custom: []
+        name: invoicePrefix
+        description: 'Must not be greater than 20 characters.'
+        required: false
+        example: miyvdljnikhwaykc
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      quotePrefix:
+        custom: []
+        name: quotePrefix
+        description: 'Must not be greater than 20 characters.'
+        required: false
+        example: myuwpwlvqwrsitcp
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      invoiceNotes:
+        custom: []
+        name: invoiceNotes
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      quoteTerms:
+        custom: []
+        name: quoteTerms
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      emailNotifications:
+        custom: []
+        name: emailNotifications
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      projectUpdates:
+        custom: []
+        name: projectUpdates
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      invoiceReminders:
+        custom: []
+        name: invoiceReminders
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      quoteExpiry:
+        custom: []
+        name: quoteExpiry
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      weeklyReports:
+        custom: []
+        name: weeklyReports
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      theme:
+        custom: []
+        name: theme
+        description: 'Must not be greater than 20 characters.'
+        required: false
+        example: ngzmiyvdljnikhwa
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      language:
+        custom: []
+        name: language
+        description: 'Must not be greater than 10 characters.'
+        required: false
+        example: ykcmyu
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      dateFormat:
+        custom: []
+        name: dateFormat
+        description: 'Must not be greater than 20 characters.'
+        required: false
+        example: wpwlvqwrsitcpscq
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      currency:
+        custom: []
+        name: currency
+        description: 'Must not be greater than 10 characters.'
+        required: false
+        example: ldzsnr
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      companyName: b
+      companyEmail: zbailey@example.net
+      companyPhone: i
+      companyAddress: 'y'
+      companyWebsite: v
+      taxId: d
+      logo: architecto
+      defaultTax: 4326.41688
+      defaultPaymentTerms: 4326.41688
+      invoicePrefix: miyvdljnikhwaykc
+      quotePrefix: myuwpwlvqwrsitcp
+      invoiceNotes: architecto
+      quoteTerms: architecto
+      emailNotifications: true
+      projectUpdates: true
+      invoiceReminders: false
+      quoteExpiry: false
+      weeklyReports: false
+      theme: ngzmiyvdljnikhwa
+      language: ykcmyu
+      dateFormat: wpwlvqwrsitcpscq
+      currency: ldzsnr
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null

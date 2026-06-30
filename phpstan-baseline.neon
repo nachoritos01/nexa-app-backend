@@ -202,6 +202,60 @@ parameters:
 			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$tenant_id\.$#'
 			identifier: property.notFound
 			count: 1
+			path: app/Models/Agency/AgencySetting.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$tenant_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/Agency/Client.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$tenant_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/Agency/Expense.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$tenant_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/Agency/Invoice.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$tenant_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/Agency/Project.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$tenant_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/Agency/Quote.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$tenant_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/Agency/Service.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$tenant_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/Agency/Supplier.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$tenant_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/Agency/TeamMember.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$tenant_id\.$#'
+			identifier: property.notFound
+			count: 1
 			path: app/Models/BillingEvent.php
 
 		-
@@ -263,6 +317,24 @@ parameters:
 			identifier: property.notFound
 			count: 1
 			path: app/Models/Location.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$tenant_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/LoyaltyCoupon.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$tenant_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/LoyaltyReward.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$tenant_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/LoyaltyTransaction.php
 
 		-
 			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$description\.$#'
@@ -365,24 +437,6 @@ parameters:
 			identifier: property.notFound
 			count: 1
 			path: app/Models/WebhookLog.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$tenant_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Models/LoyaltyCoupon.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$tenant_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Models/LoyaltyReward.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$tenant_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Models/LoyaltyTransaction.php
 
 		-
 			message: '#^Using nullsafe method call on non\-nullable type Laravel\\Sanctum\\PersonalAccessToken\. Use \-\> instead\.$#'

@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+    /**
+     * Login.
+     *
+     * Public endpoint: exchange email + password for a Bearer token. Use the
+     * returned token (and a tenant id from `tenants`) for the agency endpoints.
+     *
+     * @unauthenticated
+     */
     public function login(LoginRequest $request): JsonResponse
     {
         $validated = $request->validated();
