@@ -1,10 +1,10 @@
 # Current Development Context
 
-**Last Updated:** 2026-06-28
-**Branch:** feature/agency-full-domain (Agency API module — see note below)
+**Last Updated:** 2026-06-30
+**Branch:** feature/agency-full-domain (Agency API module — PR #3 open → develop, CI green)
 **Latest Release:** v1.2.0
 **Tests:** 348 tests, 889 assertions — ALL PASSING (0 failures)
-**PHPStan:** Level 5, 0 errors (baseline — larastan false positives)
+**PHPStan:** Level 5, 0 errors (baseline regenerated 2026-06-30 → 88 larastan false positives incl. agency models)
 
 ## Project State
 
@@ -16,7 +16,7 @@
 | **Loyalty Program** | **COMPLETE** | Merged to develop (PR #6, v1.1.0) |
 | **Audit Remediation** | **COMPLETE** | 14/14 findings resolved (PR #7 + PR #8, v1.1.1 + v1.2.0) |
 | **SaaS Infrastructure** | Retained | Multi-tenant, billing, onboarding, referrals, RBAC |
-| **Impersonate Session Fix** | **IN PROGRESS** | Fix #45 — stale `password_hash_web` broke impersonation |
+| **Impersonate Session Fix** | **COMPLETE** | Fix #45 — already on `develop` (initial commit); `bugfix/fix-impersonate-session` branch never existed. Verified green in PR #3 CI (SuperAdminTest) |
 | **Agency API Module** | **NEW (2026-06-28)** | Tenant-scoped `/api/agency/*` for the admin panel (:3001); see note below |
 
 ## Audit Findings (from /audit all — 2026-03-16)
@@ -57,16 +57,18 @@ All 14 issues resolved and documented in `docs/features/31-44` (all `.done.md`).
 
 | Item | Priority | Notes |
 |------|----------|-------|
-| PHPStan baseline | INFO | 66 Larastan false positives (dynamic Eloquent properties, pivot attrs) — not real bugs |
+| PHPStan baseline | INFO | 88 Larastan false positives (dynamic Eloquent properties, pivot attrs) — not real bugs; regenerated 2026-06-30 to cover `App\Models\Agency\*` |
 
 ## Active Branches
 
 | Branch | Purpose | Status |
 |--------|---------|--------|
-| `develop` | Integration | Stable — all PRs merged, v1.2.0 |
-| `bugfix/fix-impersonate-session` | Fix stale password_hash_web on impersonation | Ready for PR |
+| `develop` | Integration | Stable — all PRs merged, v1.2.0. Fix #45 (impersonate) already landed here in the initial commit |
 | `feature/agency-clients-api` | Agency clients slice + hardening | Pushed (superseded by full-domain) |
-| `feature/agency-full-domain` | Full agency module (8 entities + settings) + seeder + API docs | **Active**, pushed |
+| `feature/agency-full-domain` | Full agency module (8 entities + settings) + seeder + API docs | **PR #3 open** → `develop`, CI green (Lint/PHPStan/Tests) |
+
+> ~~`bugfix/fix-impersonate-session`~~ — removed: this branch never existed. Fix #45 is already on
+> `develop` (code + `SuperAdminTest` tests, initial commit `561508b`) and is verified green in PR #3 CI.
 
 ## Workspace Note (2026-06-27)
 
