@@ -64,8 +64,11 @@ All 14 issues resolved and documented in `docs/features/31-44` (all `.done.md`).
 | Branch | Purpose | Status |
 |--------|---------|--------|
 | `develop` | Integration | Stable — all PRs merged, v1.2.0. Fix #45 (impersonate) already landed here in the initial commit |
-| `feature/agency-clients-api` | Agency clients slice + hardening | Pushed (superseded by full-domain) |
 | `feature/agency-full-domain` | Full agency module (8 entities + settings) + seeder + API docs | **PR #3 open** → `develop`, CI green (Lint/PHPStan/Tests) |
+
+> Superseded branches deleted 2026-06-30 (fully contained in active branches, no PR):
+> backend `feature/agency-clients-api` (⊆ `feature/agency-full-domain`),
+> panel `fix/api-client-hardening` (⊆ `feature/connect-panel-to-backend`).
 
 > ~~`bugfix/fix-impersonate-session`~~ — removed: this branch never existed. Fix #45 is already on
 > `develop` (code + `SuperAdminTest` tests, initial commit `561508b`) and is verified green in PR #3 CI.

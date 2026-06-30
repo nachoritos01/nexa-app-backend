@@ -58,13 +58,14 @@ How to authenticate + set tenant in tests: create a User + Tenant + membership, 
 `$user->createToken(...)`. Mirror exactly how `tests/Feature/Api/V1/*` set up the tenant — read one
 first. Run: `composer test -- --filter=Agency` (PostgreSQL on 5433 via phpunit.xml).
 
-### 2. Merge / open PRs (workflow)
+### 2. Merge / open PRs (workflow) ✅ DONE (2026-06-30)
 
-Both branches are pushed but unmerged:
-- Backend `feature/agency-clients-api` (superseded) and `feature/agency-full-domain` → PR into `develop`.
-- Panel `fix/api-client-hardening` (superseded) and `feature/connect-panel-to-backend` → PR into `main`.
+- Backend **PR #3** `feature/agency-full-domain` → `develop` — open, CI green (Lint/PHPStan/Tests).
+- Panel **PR #1** `feature/connect-panel-to-backend` → `main` — open, build green, MERGEABLE/CLEAN.
+- Superseded branches **deleted** from remote+local (fully contained, no PR):
+  backend `feature/agency-clients-api`, panel `fix/api-client-hardening`.
 
-Recommend opening PRs from the *full* branches and closing/ignoring the superseded ones.
+Remaining: review + merge the two open PRs (left to the maintainer).
 
 ### 3. Optional polish (nice-to-have, not blocking)
 
