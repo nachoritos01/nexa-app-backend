@@ -197,7 +197,7 @@ Abrir 2 terminales:
 
 ```bash
 # Terminal 1 — Servidor
-DB_PORT=5433 php artisan serve
+php artisan serve
 
 # Terminal 2 — Stripe webhooks
 stripe listen --forward-to localhost:8000/stripe/webhook

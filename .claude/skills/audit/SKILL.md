@@ -42,7 +42,7 @@ Run these checks and report findings:
 
 ### 2.1 Schema Analysis
 ```bash
-DB_PORT=5433 php artisan tinker --execute="
+php artisan tinker --execute="
 \$tables = \DB::select(\"SELECT tablename FROM pg_tables WHERE schemaname = 'public' ORDER BY tablename\");
 foreach (\$tables as \$t) {
     \$cols = \DB::select(\"SELECT column_name, data_type, is_nullable FROM information_schema.columns WHERE table_name = '\" . \$t->tablename . \"' ORDER BY ordinal_position\");

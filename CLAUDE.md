@@ -6,18 +6,22 @@ Deploy: Railway (Docker).
 ## Common Commands
 
 ```bash
-composer test          # Testing (auto uses DB_PORT from phpunit.xml)
+composer test          # Testing (uses DB_PORT=5432 from phpunit.xml)
 composer analyse       # PHPStan level 5
 composer format        # Code style
 php artisan serve      # Local dev
 php artisan migrate:fresh --seed   # Reset DB
 ```
 
-> **Docker DB:** PostgreSQL runs in Docker on port 5433. Prefix artisan and test commands:
+> **Docker DB:** PostgreSQL runs in the **shared** Docker container `shared-postgres` on port
+> **5432** (Redis: `shared-redis` on 6379). Both `.env` (dev → db `saas_template`) and `phpunit.xml`
+> (tests → db `saas_template_test`) already point to 5432, so **no `DB_PORT=` prefix is needed**:
 > ```bash
-> DB_PORT=5433 php artisan migrate:fresh --seed
-> DB_PORT=5433 composer test
+> php artisan migrate:fresh --seed
+> composer test
 > ```
+> (Historically this was a dedicated `nexa-app-backend-postgres-1` container on 5433 — removed
+> 2026-06-30 in favour of the shared container. Ignore any older `DB_PORT=5433` references.)
 
 ## Important Rules
 
@@ -54,7 +58,7 @@ php artisan migrate:fresh --seed   # Reset DB
 ## Browser Verification (MCP Chrome DevTools)
 
 - After each commit that adds UI (views, Filament resources, portal tabs), verify visually using MCP Chrome DevTools
-- Start dev server: `DB_PORT=5433 php artisan serve --port=8000 &`
+- Start dev server: `php artisan serve --port=8000 &` (DB on `shared-postgres`:5432 via `.env`)
 - Use `navigate_page`, `take_screenshot`, `take_snapshot`, `fill_form`, `click` to test login flows, admin CRUD, and customer portal
 - Verify: pages load without errors, sidebar navigation shows correct items, data displays correctly
 - Stop server after verification: `kill %1`

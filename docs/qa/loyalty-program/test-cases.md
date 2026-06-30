@@ -252,7 +252,7 @@
 | **Prerequisito** | Rebased branch |
 | **Pasos** | 1. Run `composer test` |
 | **Resultado esperado** | 301 tests, 773 assertions, 0 failures |
-| **Verificacion manual** | `DB_PORT=5433 composer test` — all pass |
+| **Verificacion manual** | `composer test` (DB on shared-postgres:5432) — all pass |
 | **Estado** | PASS |
 
 ## TC-26: PHPStan clean after rebase
