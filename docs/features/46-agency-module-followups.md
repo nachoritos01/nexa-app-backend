@@ -21,11 +21,22 @@ session can execute without re-exploring.
 
 ## Pending — prioritized
 
-### 1. Tests for the agency module ⭐ (highest — matches repo convention; module has 0 tests)
+### 1. Tests for the agency module ✅ DONE (2026-06-29)
 
-The repo has 348 tests; the agency module has none. Add **feature tests** under
-`tests/Feature/Api/Agency/`. Copy patterns from `tests/Feature/Api/V1/*` and
-`tests/Feature/Api/AuthApiTest.php`.
+Added `tests/Feature/Api/Agency/` — **23 tests, 143 assertions, all green**
+(`DB_PORT=5433 php artisan test tests/Feature/Api/Agency`):
+- `AgencyTestCase` (shared auth/tenant setup), `ProjectApiTest` (full CRUD,
+  full-row-on-create, camelCase↔snake mapping + embedded arrays, validation,
+  tenant isolation + header-spoof→403), `ClientApiTest` (Spanish field mapping +
+  isolation), `SettingsApiTest` (singleton GET/PUT merge + isolation),
+  `AgencyResourcesSmokeTest` (data-provider CRUD+422 over the other 6 resources).
+- Note: tenant-isolation tests must create the "victim" row via the model (not a
+  prior HTTP request) and make all HTTP calls as one identity — switching tokens
+  mid-test hits the auth guard's per-request user cache (gave a false 200).
+
+Original notes (kept for reference):
+The repo has 348 tests; the agency module had none. Patterns copied from
+`tests/Feature/Api/V1/*` and `tests/Feature/Api/AuthApiTest.php`.
 
 Per-entity (Project, Service, Supplier, TeamMember, Quote, Invoice, Expense) + Client + Settings,
 cover:
