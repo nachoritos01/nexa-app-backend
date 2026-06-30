@@ -51,4 +51,30 @@ return Application::configure(basePath: dirname(__DIR__))
                 });
             }
         });
+
+        // For API/JSON requests, hide internal 5xx details behind a generic message.
+        // Only when debug is OFF (prod/staging) — in local you keep the full trace.
+        $exceptions->render(function (\Throwable $e, \Illuminate\Http\Request $request) {
+            if (config('app.debug')) {
+                return null;
+            }
+
+            if (! $request->is('api/*') && ! $request->expectsJson()) {
+                return null;
+            }
+
+            $status = $e instanceof \Symfony\Component\HttpKernel\Exception\HttpExceptionInterface
+                ? $e->getStatusCode()
+                : 500;
+
+            // Leave 4xx alone — those already carry safe, meaningful messages
+            // (422 validation, 401/403 auth, 404, etc.).
+            if ($status < 500) {
+                return null;
+            }
+
+            return response()->json([
+                'message' => 'Ocurrió un error en el servidor. Intenta de nuevo más tarde.',
+            ], $status);
+        });
     })->create();
