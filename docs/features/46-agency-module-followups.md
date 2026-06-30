@@ -24,7 +24,7 @@ session can execute without re-exploring.
 ### 1. Tests for the agency module ✅ DONE (2026-06-29)
 
 Added `tests/Feature/Api/Agency/` — **23 tests, 143 assertions, all green**
-(`DB_PORT=5433 php artisan test tests/Feature/Api/Agency`):
+(`php artisan test tests/Feature/Api/Agency`):
 - `AgencyTestCase` (shared auth/tenant setup), `ProjectApiTest` (full CRUD,
   full-row-on-create, camelCase↔snake mapping + embedded arrays, validation,
   tenant isolation + header-spoof→403), `ClientApiTest` (Spanish field mapping +
@@ -56,7 +56,7 @@ cover:
 How to authenticate + set tenant in tests: create a User + Tenant + membership, then either
 `Sanctum::actingAs($user)` and pass `X-Tenant-ID` header, OR mint a token via
 `$user->createToken(...)`. Mirror exactly how `tests/Feature/Api/V1/*` set up the tenant — read one
-first. Run: `composer test -- --filter=Agency` (PostgreSQL on 5433 via phpunit.xml).
+first. Run: `composer test -- --filter=Agency` (PostgreSQL on `shared-postgres`:5432 via phpunit.xml).
 
 ### 2. Merge / open PRs (workflow) ✅ DONE (2026-06-30)
 
@@ -92,8 +92,8 @@ Remaining: review + merge the two open PRs (left to the maintainer).
 ## Verification (when picking this up)
 
 ```bash
-# backend
-DB_PORT=5433 php artisan migrate          # ensure agency_* tables exist
+# backend (DB on shared-postgres:5432 via .env / phpunit.xml — no prefix needed)
+php artisan migrate                       # ensure agency_* tables exist
 php artisan db:seed --class=AgencyDemoSeeder
 composer test -- --filter=Agency          # the new tests
 composer analyse                          # PHPStan level 5
