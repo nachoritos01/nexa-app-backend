@@ -33,6 +33,7 @@ Complete documentation index for the Generic Multi-Tenant SaaS Template.
 | 17 | [Stripe CLI Setup](guides/17-stripe-cli-setup.md) | Stripe CLI installation and config |
 | 18 | [Stripe Products](guides/18-stripe-products-setup.md) | Stripe products and pricing setup |
 | 19 | [AWS Route53 + Railway](guides/19-aws-route53-railway-domain.md) | Custom domain setup |
+| 20 | [Admin UI vs API](guides/20-admin-ui-vs-api.md) | `/admin` (Filament UI) vs `/api`·`/docs` (JSON API) — differences, why they share one app, can they be separated |
 
 ## Reference
 
