@@ -31,6 +31,6 @@ class InvoiceController extends AgencyCrudController
         /** @var Invoice $invoice */
         $invoice = $this->find($id);
 
-        return $pdf->invoiceInline($invoice)->download("factura_{$invoice->number}.pdf");
+        return $pdf->invoiceInline($invoice)->download('factura_'.$this->safeFilename($invoice->number).'.pdf');
     }
 }

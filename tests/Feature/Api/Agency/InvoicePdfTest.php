@@ -8,13 +8,13 @@ use App\Models\Agency\Invoice;
 class InvoicePdfTest extends AgencyTestCase
 {
     /** Creates an invoice for the current tenant (BelongsToTenant::creating forces tenant_id). */
-    private function makeInvoice(): Invoice
+    private function makeInvoice(string $number = 'FAC-0001'): Invoice
     {
         $client = Client::create(['tenant_id' => $this->tenant->id, 'name' => 'ACME']);
 
         return Invoice::create([
             'tenant_id' => $this->tenant->id,
-            'number' => 'FAC-0001',
+            'number' => $number,
             'client_id' => $client->id,
             'date' => '2026-06-01',
             'due_date' => '2026-06-30',
@@ -43,6 +43,18 @@ class InvoicePdfTest extends AgencyTestCase
 
         $response->assertOk()->assertHeader('content-type', 'application/pdf');
         $this->assertStringStartsWith('%PDF', $response->getContent());
+    }
+
+    public function test_downloads_pdf_when_number_contains_slash(): void
+    {
+        // Slash-style numbers (e.g. FAC/2026/12) must not break Content-Disposition
+        // (HeaderUtils::makeDisposition throws on "/" in the filename → 500).
+        $invoice = $this->makeInvoice('FAC/2026/12');
+
+        $response = $this->withToken($this->token)->get("/api/agency/invoices/{$invoice->id}/pdf");
+
+        $response->assertOk()->assertHeader('content-type', 'application/pdf');
+        $this->assertStringContainsString('factura_FAC-2026-12.pdf', $response->headers->get('content-disposition'));
     }
 
     public function test_cannot_download_another_tenants_invoice(): void

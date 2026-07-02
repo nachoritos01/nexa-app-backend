@@ -31,6 +31,6 @@ class QuoteController extends AgencyCrudController
         /** @var Quote $quote */
         $quote = $this->find($id);
 
-        return $pdf->quoteInline($quote)->download("cotizacion_{$quote->number}.pdf");
+        return $pdf->quoteInline($quote)->download('cotizacion_'.$this->safeFilename($quote->number).'.pdf');
     }
 }

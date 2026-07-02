@@ -8,13 +8,13 @@ use App\Models\Agency\Quote;
 class QuotePdfTest extends AgencyTestCase
 {
     /** Creates a quote for the current tenant (BelongsToTenant::creating forces tenant_id). */
-    private function makeQuote(): Quote
+    private function makeQuote(string $number = 'COT-0001'): Quote
     {
         $client = Client::create(['tenant_id' => $this->tenant->id, 'name' => 'ACME']);
 
         return Quote::create([
             'tenant_id' => $this->tenant->id,
-            'number' => 'COT-0001',
+            'number' => $number,
             'client_id' => $client->id,
             'date' => '2026-06-01',
             'valid_until' => '2026-06-15',
@@ -45,6 +45,18 @@ class QuotePdfTest extends AgencyTestCase
 
         $response->assertOk()->assertHeader('content-type', 'application/pdf');
         $this->assertStringStartsWith('%PDF', $response->getContent());
+    }
+
+    public function test_downloads_pdf_when_number_contains_slash(): void
+    {
+        // Slash-style numbers (e.g. COT/2026/001) must not break Content-Disposition
+        // (HeaderUtils::makeDisposition throws on "/" in the filename → 500).
+        $quote = $this->makeQuote('COT/2026/001');
+
+        $response = $this->withToken($this->token)->get("/api/agency/quotes/{$quote->id}/pdf");
+
+        $response->assertOk()->assertHeader('content-type', 'application/pdf');
+        $this->assertStringContainsString('cotizacion_COT-2026-001.pdf', $response->headers->get('content-disposition'));
     }
 
     public function test_cannot_download_another_tenants_quote(): void
