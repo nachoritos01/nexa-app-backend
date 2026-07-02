@@ -152,6 +152,18 @@ curl -s http://localhost:8000/api/agency/projects \
 | `supplierId` `projectId` | string | |
 | `notes` | string | |
 
+## PDF export
+
+Download a rendered PDF (tenant-scoped, `application/pdf`, `Content-Disposition: attachment`).
+Reuses `App\Services\Agency\AgencyPdfGenerator` (dompdf) with per-tenant branding.
+
+| Method & path | Returns |
+|---|---|
+| `GET /api/agency/quotes/{id}/pdf` | `cotizacion_{number}.pdf` |
+| `GET /api/agency/invoices/{id}/pdf` | `factura_{number}.pdf` |
+
+A resource that does not belong to the caller's tenant returns **404**.
+
 ## Settings (singleton, per tenant)
 
 | Method | Path | Description |
