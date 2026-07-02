@@ -117,8 +117,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -167,8 +167,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -229,8 +229,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -279,8 +279,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -521,8 +521,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -583,8 +583,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -838,8 +838,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -900,8 +900,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -950,8 +950,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1164,8 +1164,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1226,8 +1226,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1453,8 +1453,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1515,8 +1515,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1565,8 +1565,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1687,8 +1687,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1749,8 +1749,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1867,7 +1867,7 @@ endpoints:
         name: isActive
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1879,13 +1879,13 @@ endpoints:
       category: v
       basePrice: 4326.41688
       estimatedHours: 77
-      isActive: true
+      isActive: false
     fileParameters: []
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1946,8 +1946,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1996,8 +1996,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -2145,7 +2145,7 @@ endpoints:
         name: isActive
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -2161,13 +2161,13 @@ endpoints:
       website: l
       taxId: j
       notes: architecto
-      isActive: false
+      isActive: true
     fileParameters: []
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -2228,8 +2228,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -2390,7 +2390,7 @@ endpoints:
         name: isActive
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -2406,13 +2406,13 @@ endpoints:
       website: l
       taxId: j
       notes: architecto
-      isActive: false
+      isActive: true
     fileParameters: []
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -2473,8 +2473,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -2523,8 +2523,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -2650,7 +2650,7 @@ endpoints:
         name: isActive
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -2664,13 +2664,13 @@ endpoints:
       department: v
       salary: 4326.41688
       avatar: architecto
-      isActive: false
+      isActive: true
     fileParameters: []
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -2731,8 +2731,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -2871,7 +2871,7 @@ endpoints:
         name: isActive
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -2885,13 +2885,13 @@ endpoints:
       department: v
       salary: 4326.41688
       avatar: architecto
-      isActive: true
+      isActive: false
     fileParameters: []
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -2952,8 +2952,132 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/agency/quotes/{id}/pdf'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the quote.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/agency/invoices/{id}/pdf'
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the invoice.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: architecto
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -3002,8 +3126,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -3195,8 +3319,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -3257,8 +3381,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -3463,8 +3587,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -3525,8 +3649,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -3575,8 +3699,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -3768,8 +3892,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -3830,8 +3954,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -4036,8 +4160,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -4098,8 +4222,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -4148,8 +4272,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -4294,8 +4418,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -4356,8 +4480,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -4515,8 +4639,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -4577,8 +4701,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -4627,8 +4751,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -4820,7 +4944,7 @@ endpoints:
         name: emailNotifications
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -4831,7 +4955,7 @@ endpoints:
         name: projectUpdates
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -4853,7 +4977,7 @@ endpoints:
         name: quoteExpiry
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -4864,7 +4988,7 @@ endpoints:
         name: weeklyReports
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -4928,11 +5052,11 @@ endpoints:
       quotePrefix: myuwpwlvqwrsitcp
       invoiceNotes: architecto
       quoteTerms: architecto
-      emailNotifications: true
-      projectUpdates: true
+      emailNotifications: false
+      projectUpdates: false
       invoiceReminders: false
-      quoteExpiry: false
-      weeklyReports: false
+      quoteExpiry: true
+      weeklyReports: true
       theme: ngzmiyvdljnikhwa
       language: ykcmyu
       dateFormat: wpwlvqwrsitcpscq
@@ -4941,8 +5065,8 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json

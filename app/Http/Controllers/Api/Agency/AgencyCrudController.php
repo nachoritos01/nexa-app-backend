@@ -66,4 +66,14 @@ abstract class AgencyCrudController extends Controller
 
         return $model::query()->findOrFail($id);
     }
+
+    /**
+     * Sanitize a user-provided value (e.g. a document number) for use in a
+     * download filename. Path separators must be stripped because
+     * HeaderUtils::makeDisposition() throws on "/" or "\" in the filename.
+     */
+    protected function safeFilename(string $name): string
+    {
+        return str_replace(['/', '\\'], '-', $name);
+    }
 }
