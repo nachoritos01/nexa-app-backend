@@ -43,4 +43,14 @@ class AgencyPdfGenerator
             'generatedAt' => now()->format('d/m/Y H:i'),
         ]);
     }
+
+    /**
+     * Per-tenant business/branding info (name, contact…), reused for email subjects/bodies.
+     *
+     * @return array<string, mixed>
+     */
+    public function business(): array
+    {
+        return $this->pdf->getBusinessInfo(currentTenant());
+    }
 }

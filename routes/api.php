@@ -89,9 +89,11 @@ Route::prefix('agency')->middleware(['auth:sanctum', 'api.tenant', 'throttle:api
     Route::apiResource('services', \App\Http\Controllers\Api\Agency\ServiceController::class);
     Route::apiResource('suppliers', \App\Http\Controllers\Api\Agency\SupplierController::class);
     Route::apiResource('team', \App\Http\Controllers\Api\Agency\TeamMemberController::class);
-    // PDF routes before apiResource so /{id}/pdf does not resolve as show.
+    // PDF + email routes before apiResource so /{id}/pdf does not resolve as show.
     Route::get('quotes/{id}/pdf', [\App\Http\Controllers\Api\Agency\QuoteController::class, 'pdf']);
     Route::get('invoices/{id}/pdf', [\App\Http\Controllers\Api\Agency\InvoiceController::class, 'pdf']);
+    Route::post('quotes/{id}/send', [\App\Http\Controllers\Api\Agency\QuoteController::class, 'send']);
+    Route::post('invoices/{id}/send', [\App\Http\Controllers\Api\Agency\InvoiceController::class, 'send']);
     Route::apiResource('quotes', \App\Http\Controllers\Api\Agency\QuoteController::class);
     Route::apiResource('invoices', \App\Http\Controllers\Api\Agency\InvoiceController::class);
     Route::apiResource('expenses', \App\Http\Controllers\Api\Agency\ExpenseController::class);
