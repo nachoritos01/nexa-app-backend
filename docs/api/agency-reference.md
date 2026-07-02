@@ -164,6 +164,19 @@ Reuses `App\Services\Agency\AgencyPdfGenerator` (dompdf) with per-tenant brandin
 
 A resource that does not belong to the caller's tenant returns **404**.
 
+## Email delivery
+
+Send the document to its client by email, with the PDF attached (reuses the PDF above).
+
+| Method & path | Behaviour |
+|---|---|
+| `POST /api/agency/quotes/{id}/send` | Emails the quote PDF to the client's email |
+| `POST /api/agency/invoices/{id}/send` | Emails the invoice PDF to the client's email |
+
+- **200** `{ "message": "… enviada a <email>" }` on success.
+- **422** `{ "message": "El cliente no tiene un email registrado." }` when the client has no email.
+- **404** for a resource outside the caller's tenant.
+
 ## Settings (singleton, per tenant)
 
 | Method | Path | Description |
