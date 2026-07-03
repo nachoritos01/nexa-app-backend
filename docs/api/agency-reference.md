@@ -189,6 +189,40 @@ Fields: `companyName`, `companyEmail`, `companyPhone`, `companyAddress`, `compan
 `invoiceNotes`, `quoteTerms`, `emailNotifications`, `projectUpdates`, `invoiceReminders`,
 `quoteExpiry`, `weeklyReports`, `theme`, `language`, `dateFormat`, `currency`.
 
+## Activity log (audit trail)
+
+Read-only history of agency mutations, recorded automatically by spatie/activitylog
+(`LogsAgencyActivity` on the agency models) and scoped to the current tenant.
+
+| Method | Path | Description |
+|---|---|---|
+| `GET` | `/api/agency/activity` | Paginated activity for the tenant, newest first |
+
+Query params (all optional):
+
+| Param | Notes |
+|---|---|
+| `subjectType` | One of `client`, `project`, `quote`, `invoice`, `expense`, `service`, `supplier`, `team` |
+| `subjectId` | UUID of a specific entity (combine with `subjectType`) |
+| `page` | Page number (standard Laravel pagination) |
+| `perPage` | Items per page, 1–50 (default 20) |
+
+Each item:
+```json
+{
+  "id": 12,
+  "description": "updated",
+  "event": "updated",
+  "subjectType": "Quote",
+  "subjectId": "0190f…",
+  "causerName": "Admin",
+  "changes": { "attributes": { "status": "accepted" }, "old": { "status": "sent" } },
+  "createdAt": "2026-07-03T22:00:00+00:00"
+}
+```
+Heavy JSON columns (`items`, `tasks`, `comments`, `files`, `teamMembers`) are excluded from
+`changes` to keep the trail readable. An unknown `subjectType` returns **422**.
+
 ## Errors
 
 | Status | Meaning |

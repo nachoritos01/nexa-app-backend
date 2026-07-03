@@ -2,6 +2,7 @@
 
 namespace App\Models\Agency;
 
+use App\Models\Agency\Concerns\LogsAgencyActivity;
 use App\Models\Concerns\BelongsToTenant;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
@@ -9,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 class Invoice extends Model
 {
     use BelongsToTenant;
+    use LogsAgencyActivity;
     use HasUuids;
 
     protected $table = 'agency_invoices';

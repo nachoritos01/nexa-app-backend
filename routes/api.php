@@ -99,4 +99,5 @@ Route::prefix('agency')->middleware(['auth:sanctum', 'api.tenant', 'agency.acces
     Route::apiResource('expenses', \App\Http\Controllers\Api\Agency\ExpenseController::class);
     Route::get('settings', [\App\Http\Controllers\Api\Agency\SettingsController::class, 'show']);
     Route::put('settings', [\App\Http\Controllers\Api\Agency\SettingsController::class, 'update']);
+    Route::get('activity', [\App\Http\Controllers\Api\Agency\ActivityController::class, 'index']);
 });
