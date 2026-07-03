@@ -37,3 +37,7 @@ _ide_helper_models.php
 
 # Test coverage
 /coverage
+
+# Scribe generated docs (rebuild with: php artisan scribe:generate)
+/resources/views/scribe
+/public/vendor/scribe

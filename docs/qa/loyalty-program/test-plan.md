@@ -48,7 +48,7 @@ Validar que el programa de lealtad permite acumular puntos por compras, calcular
 | Laravel | 12 |
 | Filament | 3.3 |
 | Livewire | 4.1 |
-| PostgreSQL | 15 (Docker, port 5433) |
+| PostgreSQL | 15 (Docker, shared-postgres, port 5432) |
 
 ## 5. Riesgos
 

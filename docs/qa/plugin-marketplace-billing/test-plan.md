@@ -50,7 +50,7 @@ Validar que el marketplace permite activar/desactivar plugins por tenant, que lo
 | PHP | 8.4+ |
 | Laravel | 12 |
 | Filament | 3.3 |
-| PostgreSQL | 15 (Docker, port 5433) |
+| PostgreSQL | 15 (Docker, shared-postgres, port 5432) |
 | Stripe | Laravel Cashier (mocked en tests) |
 
 ## 5. Riesgos
