@@ -56,11 +56,7 @@ class AuthController extends Controller
         $user->update(['last_login_at' => now()]);
 
         return response()->json([
-            'user' => [
-                'id' => $user->id,
-                'name' => $user->name,
-                'email' => $user->email,
-            ],
+            'user' => $this->userPayload($user),
             'tenants' => $this->getUserTenants($user->id),
             'token' => $token->plainTextToken,
             'token_type' => 'Bearer',
@@ -73,11 +69,7 @@ class AuthController extends Controller
         $user = $request->user();
 
         return response()->json([
-            'user' => [
-                'id' => $user->id,
-                'name' => $user->name,
-                'email' => $user->email,
-            ],
+            'user' => $this->userPayload($user),
             'tenants' => $this->getUserTenants($user->id),
         ]);
     }
@@ -104,6 +96,30 @@ class AuthController extends Controller
         return response()->json([
             'message' => 'Push token stored successfully.',
         ]);
+    }
+
+    /**
+     * Build the authenticated-user payload shared by login() and me().
+     *
+     * `role` is the user's (global) spatie role; `permissions` is filtered to the
+     * `agency.*` namespace so the panel only sees its own permissions, never the
+     * e-commerce ones. The panel uses these to hide/disable write actions.
+     *
+     * @return array{id: int, name: string, email: string, role: string|null, permissions: list<string>}
+     */
+    private function userPayload(User $user): array
+    {
+        return [
+            'id' => $user->id,
+            'name' => $user->name,
+            'email' => $user->email,
+            'role' => $user->getRoleNames()->first(),
+            'permissions' => $user->getAllPermissions()
+                ->pluck('name')
+                ->filter(fn (string $permission) => str_starts_with($permission, 'agency.'))
+                ->values()
+                ->all(),
+        ];
     }
 
     /**
