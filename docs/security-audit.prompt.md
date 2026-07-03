@@ -81,8 +81,11 @@ el trait `App\Models\Concerns\BelongsToTenant` añade un *global scope* que filt
 - Cookies de sesión de Filament: `Secure`, `HttpOnly`, `SameSite`.
 
 ### 8. CSRF, webhooks y admin
-- `validateCsrfTokens(except: ['stripe/webhook'])` — confirma que **solo** el webhook está exento y
-  que `StripeWebhookController` **verifica la firma** (`whsec`) antes de procesar.
+- `validateCsrfTokens(except: ['stripe/webhook'])` — confirma que **solo** el webhook está exento.
+  `StripeWebhookController` **extiende el `WebhookController` de Cashier**, que ya verifica la firma
+  vía `STRIPE_WEBHOOK_SECRET` — el check real es: que ese secret esté configurado en prod, que la
+  exención CSRF sea estrecha (solo esa ruta), y que ningún override procese el payload antes de la
+  verificación de la clase padre.
 - `/admin` y `/super-admin`: gateados por `AllowlistIp` (env `ADMIN_IP_ALLOWLIST`, vacío = abierto).
   Verifica que en prod se configure. Nota: devuelve 404 (no revela el panel).
 
