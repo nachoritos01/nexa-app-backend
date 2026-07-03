@@ -24,7 +24,7 @@ class RevenueChart extends ChartWidget
 
         $revenue = Order::where('created_at', '>=', $startDate)
             ->whereIn('status', ['confirmed', 'in_progress', 'completed'])
-            ->selectRaw("created_at::date as date, SUM(total) as total")
+            ->selectRaw('created_at::date as date, SUM(total) as total')
             ->groupByRaw('created_at::date')
             ->pluck('total', 'date');
 

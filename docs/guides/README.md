@@ -24,6 +24,8 @@ Bienvenido al centro de documentation para desarrolladores. Estas guides te will
 | [16-payment_gateway-setup.md](./16-payment_gateway-setup.md) | Configurar Payment Gateway Payment Links | Intermedio |
 | [17-stripe-cli-setup.md](./17-stripe-cli-setup.md) | Instalar Stripe CLI y recibir webhooks locales | Intermedio |
 | [18-stripe-products-setup.md](./18-stripe-products-setup.md) | Crear items y precios en Stripe Dashboard | Principiante |
+| [19-aws-route53-railway-domain.md](./19-aws-route53-railway-domain.md) | Dominio propio con AWS Route53 + Railway | Intermedio |
+| [20-admin-ui-vs-api.md](./20-admin-ui-vs-api.md) | `/admin` (UI Filament) vs `/api`·`/docs` (API JSON): diferencias, por que comparten app, se pueden separar | Intermedio |
 
 ## 🎯 Ruta de Aprendizaje Sugerida
 

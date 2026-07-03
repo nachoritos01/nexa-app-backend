@@ -28,8 +28,9 @@ Complete documentation index for the project. Full navigable index at [docs/READ
 
 | File | Contents |
 |---|---|
-| [docs/api-reference.md](../../docs/api-reference.md) | Complete API endpoints with examples |
-| [docs/api/v1-reference.md](../../docs/api/v1-reference.md) | V1 API reference |
+| [docs/api-reference.md](../../docs/api-reference.md) | Public API endpoints with examples |
+| [docs/api/v1-reference.md](../../docs/api/v1-reference.md) | V1 (e-commerce) API reference |
+| [docs/api/agency-reference.md](../../docs/api/agency-reference.md) | **Agency module API** (admin panel :3001); interactive Scribe docs at `/docs`, OpenAPI `/docs.openapi` |
 | [docs/design-system.md](../../docs/design-system.md) | Color palette, gradients, UI/UX components |
 | [docs/filament-guide.md](../../docs/filament-guide.md) | Filament panel guide |
 | [docs/claude-context-guide.md](../../docs/claude-context-guide.md) | Claude context files guide |

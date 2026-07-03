@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use App\Enums\LoyaltyTier;
-use App\Enums\OrderStatus;
 use App\Models\Customer;
 use App\Models\LoyaltyCoupon;
 use App\Models\LoyaltyReward;

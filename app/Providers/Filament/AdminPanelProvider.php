@@ -57,6 +57,7 @@ class AdminPanelProvider extends PanelProvider
                 \App\Filament\Widgets\StatsOverview::class,
             ])
             ->middleware([
+                \App\Http\Middleware\AllowlistIp::class,
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
                 StartSession::class,

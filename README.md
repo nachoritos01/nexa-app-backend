@@ -44,10 +44,11 @@ php artisan migrate:fresh --seed
 php artisan serve
 ```
 
-> **Docker DB:** PostgreSQL runs in Docker on port 5433. Prefix commands:
+> **Docker DB:** PostgreSQL runs in the shared `shared-postgres` container on port **5432**
+> (Redis: `shared-redis`:6379). `.env` and `phpunit.xml` already target 5432, so no prefix is needed:
 > ```bash
-> DB_PORT=5433 php artisan migrate:fresh --seed
-> DB_PORT=5433 composer test
+> php artisan migrate:fresh --seed
+> composer test
 > ```
 
 ## Configuration
