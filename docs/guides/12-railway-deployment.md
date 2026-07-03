@@ -668,6 +668,20 @@ Si ya hay duplicados, resetear desde psql o DBeaver.
 - [ ] `APP_DEBUG=false` (desactivar despues de check)
 - [ ] Eliminar `ADMIN_PASSWORD` de Railway (ya no se necesita)
 
+### Hardening / features del modulo agency (v1.4.0+)
+
+Estas variables ya estan en `.env.example`; en produccion hay que darles valores reales:
+
+- [ ] **Email real (modulo agency send):** `MAIL_MAILER` a un driver SMTP real
+  (`smtp`/`ses`/`mailgun`/`postmark`/`resend`) + `MAIL_HOST/PORT/USERNAME/PASSWORD` y
+  `MAIL_FROM_ADDRESS`. En dev es `log` (los correos van a `storage/logs/laravel.log`), asi que
+  `POST /api/agency/{quotes,invoices}/{id}/send` **no envia nada real hasta configurar esto**.
+- [ ] **Bloquear `/admin` y `/super-admin`:** `ADMIN_IP_ALLOWLIST` con las IPs/CIDR permitidas
+  (ej. `"203.0.113.4, 10.8.0.0/24"`). Vacio = abierto. Detras del proxy de Railway funciona porque
+  ya hay `trustProxies(at: '*')`.
+- [ ] **No publicar los docs API:** `SCRIBE_DOCS_ENABLED` sin definir o `false` → `/docs` devuelve 404
+  en produccion.
+
 ---
 
-*Ultima actualizacion: 2026-02-09*
+*Ultima actualizacion: 2026-07-02*
