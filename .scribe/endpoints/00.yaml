@@ -73,6 +73,8 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '5'
+          x-ratelimit-remaining: '4'
           x-content-type-options: nosniff
           x-frame-options: DENY
           x-xss-protection: '1; mode=block'
@@ -1668,7 +1670,7 @@ endpoints:
         name: isActive
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1680,7 +1682,7 @@ endpoints:
       category: v
       basePrice: 4326.41688
       estimatedHours: 77
-      isActive: false
+      isActive: true
     fileParameters: []
     responses:
       -
@@ -2143,7 +2145,7 @@ endpoints:
         name: isActive
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -2159,7 +2161,7 @@ endpoints:
       website: l
       taxId: j
       notes: architecto
-      isActive: true
+      isActive: false
     fileParameters: []
     responses:
       -
@@ -2388,7 +2390,7 @@ endpoints:
         name: isActive
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -2404,7 +2406,7 @@ endpoints:
       website: l
       taxId: j
       notes: architecto
-      isActive: true
+      isActive: false
     fileParameters: []
     responses:
       -
@@ -2648,7 +2650,7 @@ endpoints:
         name: isActive
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -2662,7 +2664,7 @@ endpoints:
       department: v
       salary: 4326.41688
       avatar: architecto
-      isActive: true
+      isActive: false
     fileParameters: []
     responses:
       -
@@ -5066,7 +5068,7 @@ endpoints:
         name: emailNotifications
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -5088,7 +5090,7 @@ endpoints:
         name: invoiceReminders
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -5110,7 +5112,7 @@ endpoints:
         name: weeklyReports
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -5174,11 +5176,11 @@ endpoints:
       quotePrefix: myuwpwlvqwrsitcp
       invoiceNotes: architecto
       quoteTerms: architecto
-      emailNotifications: true
+      emailNotifications: false
       projectUpdates: false
-      invoiceReminders: true
+      invoiceReminders: false
       quoteExpiry: false
-      weeklyReports: true
+      weeklyReports: false
       theme: ngzmiyvdljnikhwa
       language: ykcmyu
       dateFormat: wpwlvqwrsitcpscq

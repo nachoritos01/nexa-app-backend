@@ -32,6 +32,8 @@ class RolesAndPermissionsSeeder extends Seeder
             'users.manage',
             'billing.manage',
             'plugins.manage',
+            'agency.view',
+            'agency.manage',
         ];
 
         foreach ($permissions as $permission) {
