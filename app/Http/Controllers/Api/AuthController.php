@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
     /**
+     * Precomputed bcrypt hash (cost 12) of a random value. Used only to equalize
+     * response time when the email doesn't exist, preventing timing-based user
+     * enumeration. It is NOT a real password.
+     */
+    private const DUMMY_HASH = '$2y$12$OaVCrVbE4SIIupWXlPg5vuXJ1/q8JvvgVphYPDwdr9MpeBayaNLea';
+
+    /**
      * Login.
      *
      * Public endpoint: exchange email + password for a Bearer token. Use the
@@ -27,7 +34,16 @@ class AuthController extends Controller
 
         $user = User::where('email', $validated['email'])->first();
 
-        if (! $user || ! Hash::check($validated['password'], $user->password)) {
+        // Always run a hash comparison (against a dummy hash when the user is
+        // unknown) so response time doesn't reveal whether the email exists.
+        if ($user) {
+            $passwordValid = Hash::check($validated['password'], $user->password);
+        } else {
+            Hash::check($validated['password'], self::DUMMY_HASH);
+            $passwordValid = false;
+        }
+
+        if (! $user || ! $passwordValid) {
             return response()->json([
                 'error' => 'Invalid credentials.',
                 'code' => 'INVALID_CREDENTIALS',

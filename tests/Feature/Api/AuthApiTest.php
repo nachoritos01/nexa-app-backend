@@ -79,6 +79,24 @@ class AuthApiTest extends TestCase
         $response->assertUnauthorized();
     }
 
+    public function test_login_is_rate_limited_after_repeated_failures(): void
+    {
+        $user = $this->createUserWithTenant();
+
+        // 5 attempts/min allowed; the 6th for the same IP+email is throttled.
+        for ($i = 0; $i < 5; $i++) {
+            $this->postJson('/api/auth/login', [
+                'email' => $user->email,
+                'password' => 'wrong-password',
+            ])->assertUnauthorized();
+        }
+
+        $this->postJson('/api/auth/login', [
+            'email' => $user->email,
+            'password' => 'wrong-password',
+        ])->assertStatus(429);
+    }
+
     public function test_login_validates_required_fields(): void
     {
         $response = $this->postJson('/api/auth/login', []);

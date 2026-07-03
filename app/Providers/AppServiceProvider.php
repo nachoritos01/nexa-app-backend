@@ -67,6 +67,13 @@ class AppServiceProvider extends ServiceProvider
 
     private function configureRateLimiting(): void
     {
+        // Throttle login attempts per IP + email to blunt brute-force / credential stuffing.
+        RateLimiter::for('login', function (Request $request) {
+            $key = $request->ip().'|'.strtolower((string) $request->input('email'));
+
+            return Limit::perMinute(config('saas.api.rate_limits.login', 5))->by($key);
+        });
+
         RateLimiter::for('api-tenant', function (Request $request) {
             $user = $request->user();
 

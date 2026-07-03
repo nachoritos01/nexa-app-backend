@@ -55,7 +55,7 @@ Route::get('content/{type}', [ContentController::class, 'show'])
 // ==================
 if (hasModule('api')) {
     Route::prefix('auth')->group(function () {
-        Route::post('login', [AuthController::class, 'login']);
+        Route::post('login', [AuthController::class, 'login'])->middleware('throttle:login');
 
         Route::middleware('auth:sanctum')->group(function () {
             Route::get('me', [AuthController::class, 'me']);
@@ -83,7 +83,7 @@ if (hasModule('api')) {
 // Agency module (internal admin panel)
 // Auth + tenant-scoped, but NOT behind the Pro gate (first-party endpoints).
 // ==================
-Route::prefix('agency')->middleware(['auth:sanctum', 'api.tenant', 'throttle:api-tenant'])->group(function () {
+Route::prefix('agency')->middleware(['auth:sanctum', 'api.tenant', 'agency.access', 'throttle:api-tenant'])->group(function () {
     Route::apiResource('clients', AgencyClientController::class);
     Route::apiResource('projects', \App\Http\Controllers\Api\Agency\ProjectController::class);
     Route::apiResource('services', \App\Http\Controllers\Api\Agency\ServiceController::class);

@@ -24,6 +24,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'customer.tenant' => \App\Http\Middleware\EnsureCustomerTenant::class,
             'api.tenant' => \App\Http\Middleware\ResolveApiTenant::class,
             'api.pro' => \App\Http\Middleware\EnsureApiAccess::class,
+            'agency.access' => \App\Http\Middleware\AuthorizeAgency::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
