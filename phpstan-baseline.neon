@@ -103,12 +103,6 @@ parameters:
 			path: app/Filament/Widgets/OnboardingBanner.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$tenant_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Http/Controllers/Api/V1/PaymentController.php
-
-		-
 			message: '#^Access to an undefined property App\\Models\\OrderLine\:\:\$name\.$#'
 			identifier: property.notFound
 			count: 1

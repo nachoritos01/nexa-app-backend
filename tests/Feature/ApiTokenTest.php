@@ -52,27 +52,6 @@ class ApiTokenTest extends TestCase
         $response->assertUnauthorized();
     }
 
-    public function test_non_pro_plan_receives_403(): void
-    {
-        // The Pro gate (api.pro / EnsureApiAccess) was retired with the V1 surface;
-        // /api/agency is deliberately NOT plan-gated (first-party panel).
-        $this->markTestSkipped('API V1 retirada — ver docs/auditoria-y-plan-api-agency.md');
-
-        $starterTenant = Tenant::factory()->create([
-            'plan' => 'starter',
-            'owner_id' => $this->user->id,
-        ]);
-
-        $token = $this->user->createToken('Starter Token');
-        $token->accessToken->update(['tenant_id' => $starterTenant->id]);
-
-        $response = $this->withToken($token->plainTextToken)
-            ->getJson('/api/v1/orders');
-
-        $response->assertForbidden()
-            ->assertJsonPath('code', 'PLAN_UPGRADE_REQUIRED');
-    }
-
     public function test_inactive_tenant_receives_403(): void
     {
         $inactiveTenant = Tenant::factory()->pro()->inactive()->create([
