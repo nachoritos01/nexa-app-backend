@@ -25,16 +25,36 @@ Every `/api/agency/*` endpoint requires:
 Response:
 ```json
 {
-  "user": { "id": 1, "name": "Admin", "email": "admin@example.com" },
+  "user": {
+    "id": 1, "name": "Admin", "email": "admin@example.com",
+    "role": "owner",
+    "permissions": ["agency.view", "agency.manage"]
+  },
   "tenants": [ { "id": 1, "name": "MySaaS", "slug": "default", "plan": "pro", "role": "owner" } ],
   "token": "1|xxxxxxxx",
   "token_type": "Bearer"
 }
 ```
-Use `token` as the Bearer token and `tenants[0].id` as `X-Tenant-ID`.
+Use `token` as the Bearer token and `tenants[0].id` as `X-Tenant-ID`. `user.permissions`
+is filtered to the `agency.*` namespace (see RBAC below); `user.role` is the user's global role.
+
+### `GET /api/auth/me`
+Same `user` (with `role` + `permissions`) and `tenants` shape as login. Send the Bearer header.
 
 ### `POST /api/auth/logout`
 Revokes the current token. Send the Bearer header.
+
+## RBAC (agency permissions)
+
+All `/api/agency/*` routes are gated by the `agency.access` middleware:
+
+- Safe methods (`GET`/`HEAD`) require **`agency.view`**.
+- Writes (`POST`/`PUT`/`DELETE`) require **`agency.manage`**.
+
+A request lacking the needed permission gets `403 { "error": "...", "code": "FORBIDDEN" }`.
+Seeded roles: `owner`/`admin` have both permissions; `ventas`/`produccion`/`contabilidad` have
+`agency.view` only (read-only). The panel reads `user.permissions` from login/me to hide or
+disable write actions for read-only roles.
 
 ## Conventions
 

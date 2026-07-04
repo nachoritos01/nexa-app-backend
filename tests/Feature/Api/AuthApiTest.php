@@ -30,6 +30,7 @@ class AuthApiTest extends TestCase
             'owner_id' => $user->id,
         ]);
         $tenant->users()->attach($user->id, ['role' => $role]);
+        $user->syncRoles([$role]);
 
         return $user;
     }
@@ -119,6 +120,42 @@ class AuthApiTest extends TestCase
             ->assertJsonPath('tenants.0.role', 'admin');
     }
 
+    public function test_login_returns_role_and_agency_permissions(): void
+    {
+        $user = $this->createUserWithTenant('owner');
+
+        $response = $this->postJson('/api/auth/login', [
+            'email' => $user->email,
+            'password' => 'password123',
+        ]);
+
+        $response->assertOk()
+            ->assertJsonPath('user.role', 'owner');
+
+        $permissions = $response->json('user.permissions');
+        $this->assertContains('agency.view', $permissions);
+        $this->assertContains('agency.manage', $permissions);
+        // Only agency.* is exposed to the panel — never the e-commerce permissions.
+        $this->assertNotContains('orders.view', $permissions);
+    }
+
+    public function test_login_view_only_role_has_no_manage_permission(): void
+    {
+        // 'ventas' is seeded with agency.view but not agency.manage.
+        $user = $this->createUserWithTenant('ventas');
+
+        $response = $this->postJson('/api/auth/login', [
+            'email' => $user->email,
+            'password' => 'password123',
+        ]);
+
+        $response->assertOk()->assertJsonPath('user.role', 'ventas');
+
+        $permissions = $response->json('user.permissions');
+        $this->assertContains('agency.view', $permissions);
+        $this->assertNotContains('agency.manage', $permissions);
+    }
+
     public function test_login_updates_last_login_at(): void
     {
         $user = $this->createUserWithTenant();
@@ -145,10 +182,11 @@ class AuthApiTest extends TestCase
 
         $response->assertOk()
             ->assertJsonStructure([
-                'user' => ['id', 'name', 'email'],
+                'user' => ['id', 'name', 'email', 'role', 'permissions'],
                 'tenants',
             ])
-            ->assertJsonPath('user.id', $user->id);
+            ->assertJsonPath('user.id', $user->id)
+            ->assertJsonPath('user.role', 'owner');
     }
 
     public function test_me_without_token_returns_401(): void

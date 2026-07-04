@@ -44,19 +44,24 @@ class RolesAndPermissionsSeeder extends Seeder
         $roles = [
             'owner' => $permissions, // All permissions
             'admin' => array_filter($permissions, fn ($p) => $p !== 'billing.manage'),
+            // agency.view (read-only) is granted to the operational roles so they can
+            // open the panel; only owner/admin get agency.manage (writes).
             'ventas' => [
                 'orders.view', 'orders.create', 'orders.edit',
                 'customers.manage',
                 'payments.view', 'payments.create',
+                'agency.view',
             ],
             'produccion' => [
                 'orders.view',
                 'production.view', 'production.mark',
+                'agency.view',
             ],
             'contabilidad' => [
                 'orders.view',
                 'payments.view',
                 'reports.export',
+                'agency.view',
             ],
         ];
 
