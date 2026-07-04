@@ -1670,7 +1670,7 @@ endpoints:
         name: isActive
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1682,7 +1682,7 @@ endpoints:
       category: v
       basePrice: 4326.41688
       estimatedHours: 77
-      isActive: true
+      isActive: false
     fileParameters: []
     responses:
       -
@@ -2145,7 +2145,7 @@ endpoints:
         name: isActive
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -2161,7 +2161,7 @@ endpoints:
       website: l
       taxId: j
       notes: architecto
-      isActive: false
+      isActive: true
     fileParameters: []
     responses:
       -
@@ -2390,7 +2390,7 @@ endpoints:
         name: isActive
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -2406,7 +2406,7 @@ endpoints:
       website: l
       taxId: j
       notes: architecto
-      isActive: false
+      isActive: true
     fileParameters: []
     responses:
       -
@@ -5101,7 +5101,7 @@ endpoints:
         name: quoteExpiry
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -5179,12 +5179,98 @@ endpoints:
       emailNotifications: false
       projectUpdates: false
       invoiceReminders: false
-      quoteExpiry: false
+      quoteExpiry: true
       weeklyReports: false
       theme: ngzmiyvdljnikhwa
       language: ykcmyu
       dateFormat: wpwlvqwrsitcpscq
       currency: ldzsnr
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 500
+        content: '{"message":"Ocurri\u00f3 un error en el servidor. Intenta de nuevo m\u00e1s tarde."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-content-type-options: nosniff
+          x-frame-options: DENY
+          x-xss-protection: '1; mode=block'
+          referrer-policy: strict-origin-when-cross-origin
+          permissions-policy: 'camera=(), microphone=(), geolocation=()'
+          vary: Origin
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/agency/activity
+    metadata:
+      custom: []
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+      X-Tenant-ID: '1'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      subjectType:
+        custom: []
+        name: subjectType
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      subjectId:
+        custom: []
+        name: subjectId
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      perPage:
+        custom: []
+        name: perPage
+        description: 'Must be at least 1. Must not be greater than 50.'
+        required: false
+        example: 22
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      subjectType: architecto
+      subjectId: architecto
+      perPage: 22
     fileParameters: []
     responses:
       -
