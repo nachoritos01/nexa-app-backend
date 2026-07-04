@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Agency\Client as AgencyClient;
 use App\Models\Customer;
 use App\Models\Item;
 use App\Models\Order;
@@ -105,19 +106,17 @@ class TenantIsolationTest extends TestCase
         $this->assertCount(5, $all);
     }
 
-    public function test_api_v1_with_tenant_a_token_does_not_return_tenant_b_data(): void
+    public function test_api_with_tenant_a_token_does_not_return_tenant_b_data(): void
     {
-        app()->instance('currentTenant', $this->tenantA);
-        Order::factory()->count(2)->create(['tenant_id' => $this->tenantA->id]);
-
-        app()->instance('currentTenant', $this->tenantB);
-        Order::factory()->count(3)->create(['tenant_id' => $this->tenantB->id]);
+        // Runs over /api/agency (the only remaining API surface — V1 was retired).
+        AgencyClient::factory()->count(2)->create(['tenant_id' => $this->tenantA->id]);
+        AgencyClient::factory()->count(3)->create(['tenant_id' => $this->tenantB->id]);
 
         $tokenA = $this->userA->createToken('Test A');
         $tokenA->accessToken->update(['tenant_id' => $this->tenantA->id]);
 
         $response = $this->withToken($tokenA->plainTextToken)
-            ->getJson('/api/v1/orders');
+            ->getJson('/api/agency/clients');
 
         $response->assertOk();
         $this->assertCount(2, $response->json('data'));

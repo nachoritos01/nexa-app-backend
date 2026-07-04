@@ -48,25 +48,8 @@ class ApiTokenTest extends TestCase
 
         // Revoked token should not work
         $response = $this->withToken($token->plainTextToken)
-            ->getJson('/api/v1/orders');
+            ->getJson('/api/agency/clients');
         $response->assertUnauthorized();
-    }
-
-    public function test_non_pro_plan_receives_403(): void
-    {
-        $starterTenant = Tenant::factory()->create([
-            'plan' => 'starter',
-            'owner_id' => $this->user->id,
-        ]);
-
-        $token = $this->user->createToken('Starter Token');
-        $token->accessToken->update(['tenant_id' => $starterTenant->id]);
-
-        $response = $this->withToken($token->plainTextToken)
-            ->getJson('/api/v1/orders');
-
-        $response->assertForbidden()
-            ->assertJsonPath('code', 'PLAN_UPGRADE_REQUIRED');
     }
 
     public function test_inactive_tenant_receives_403(): void
@@ -80,16 +63,9 @@ class ApiTokenTest extends TestCase
         $token->accessToken->update(['tenant_id' => $inactiveTenant->id]);
 
         $response = $this->withToken($token->plainTextToken)
-            ->getJson('/api/v1/orders');
+            ->getJson('/api/agency/clients');
 
         $response->assertForbidden()
             ->assertJsonPath('code', 'TENANT_INACTIVE');
-    }
-
-    public function test_unauthenticated_request_returns_401(): void
-    {
-        $response = $this->getJson('/api/v1/orders');
-
-        $response->assertUnauthorized();
     }
 }

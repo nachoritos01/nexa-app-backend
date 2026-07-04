@@ -218,34 +218,4 @@ class AuthApiTest extends TestCase
             'id' => $sanctumToken->accessToken->id,
         ]);
     }
-
-    // Push token tests
-
-    public function test_push_token_stores_on_user(): void
-    {
-        $user = $this->createUserWithTenant();
-        $token = $user->createToken('test')->plainTextToken;
-
-        $response = $this->withToken($token)
-            ->postJson('/api/auth/push-token', [
-                'push_token' => 'ExponentPushToken[abc123]',
-            ]);
-
-        $response->assertOk();
-
-        $user->refresh();
-        $this->assertEquals('ExponentPushToken[abc123]', $user->push_token);
-    }
-
-    public function test_push_token_validates_required(): void
-    {
-        $user = $this->createUserWithTenant();
-        $token = $user->createToken('test')->plainTextToken;
-
-        $response = $this->withToken($token)
-            ->postJson('/api/auth/push-token', []);
-
-        $response->assertUnprocessable()
-            ->assertJsonValidationErrors(['push_token']);
-    }
 }

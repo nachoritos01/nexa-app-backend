@@ -1,10 +1,44 @@
 # Current Development Context
 
-**Last Updated:** 2026-06-30
-**Branch:** feature/agency-full-domain (Agency API module — PR #3 open → develop, CI green)
+**Last Updated:** 2026-07-04
+**Open PRs → develop:** #20 `feature/retire-public-v1-api` (API surface pruning) · #21 `feature/sanctum-token-expiration` (tokens expire after 7 days).
 **Latest Release:** v1.2.0
-**Tests:** 348 tests, 889 assertions — ALL PASSING (0 failures)
-**PHPStan:** Level 5, 0 errors (baseline regenerated 2026-06-30 → 88 larastan false positives incl. agency models)
+**Tests:** 366 tests, 994 assertions — ALL PASSING (0 failures, 0 skips) on retire branch; sanctum branch adds 2 token-expiration tests.
+**PHPStan:** Level 5, 0 errors (baseline: removed stale V1/PaymentController + ApiSettings entries)
+
+## API Surface Pruning (2026-07-04) — PR #20 `feature/retire-public-v1-api`
+
+Executed `docs/auditoria-y-plan-api-agency.md` (Parte B, corrected 2026-07-04):
+- **Retired:** public surface (`/api` root, `/api/health`, public quotes, content), the whole
+  `/api/v1/*` group, `POST /auth/push-token`, `EnsureApiAccess`/`api.pro`.
+- **Kept (critical):** `/api/auth/login|me|logout` — the panel's login — moved OUT of the
+  `hasModule('api')` gate so `MODULE_API=false` can never switch it off. `AuthController` +
+  `LoginRequest` stay. Models, `App\Services\PdfGenerator`, Filament, portal, DB untouched
+  (zero migrations).
+- Tests: V1/health/push-token tests deleted; token/isolation coverage repointed from
+  `/api/v1/orders` to `/api/agency/clients` (`ApiTokenTest`, `TenantIsolationTest`).
+- Health checks: native `/up` only (Railway `railway.json` already pointed there).
+- **Code-review fixes** (commit `a2c3f10`): retired the orphaned push pipeline (OrderObserver
+  branch + `SendPushNotification` job + `push_token` fillable; column kept, non-destructive);
+  deleted the Filament "API" settings page (documented the dead v1 surface); added
+  `ClientFactory` for `Agency\Client`; regenerated Scribe docs.
+- Verified live (MCP): `/up` 200, login 422-validates, agency 401 w/o token, Filament 200
+  (no "API" nav item, "Webhooks" kept), `/docs` without push-token/v1, portal `/my-account` 302,
+  retired routes 404.
+- **Panel e2e (localhost:3000):** login + `/api/agency/*` CRUD + activity timeline all work; CORS OK.
+
+## Tech debt / env note (2026-07-04)
+- The dev DB (`saas_template`) had a **pending** migration
+  `2026_07_03_..._change_activity_log_subject_id_to_string` (widens `activity_log.subject_id`
+  bigint→string for UUID-keyed agency subjects). It was applied during the panel e2e test —
+  without it, `GET /api/agency/activity?subjectId=<uuid>` 500s (SQLSTATE 22P02). The migration
+  file already exists on develop (activity-timeline work); this was only local-DB staleness.
+  Remember to `php artisan migrate` on any dev DB that predates it.
+
+## Sanctum token expiration (2026-07-04) — PR #21 `feature/sanctum-token-expiration`
+- `config/sanctum.php` `'expiration'` was `null` (tokens never expired). Set to 7 days
+  (override via `SANCTUM_TOKEN_EXPIRATION`). Panel already handles 401 → `/login`.
+- `AuthApiTest`: added expired-token → 401 and within-window → OK (`travel()`).
 
 ## Project State
 
