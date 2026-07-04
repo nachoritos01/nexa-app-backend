@@ -21,6 +21,7 @@ class PaymentApiV1Test extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $this->markTestSkipped('API pública/V1 retirada — ver docs/auditoria-y-plan-api-agency.md');
         $this->seed(RolesAndPermissionsSeeder::class);
 
         $user = User::factory()->create();

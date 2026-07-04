@@ -9,6 +9,13 @@ class HealthCheckTest extends TestCase
 {
     use RefreshDatabase;
 
+    protected function setUp(): void
+    {
+        parent::setUp();
+        // Railway health checks use the native /up endpoint.
+        $this->markTestSkipped('/api/health retirado — ver docs/auditoria-y-plan-api-agency.md');
+    }
+
     public function test_health_check_returns_200_when_healthy(): void
     {
         $response = $this->getJson('/api/health');

@@ -223,6 +223,8 @@ class AuthApiTest extends TestCase
 
     public function test_push_token_stores_on_user(): void
     {
+        $this->markTestSkipped('push-token (mobile-only) retirado — ver docs/auditoria-y-plan-api-agency.md');
+
         $user = $this->createUserWithTenant();
         $token = $user->createToken('test')->plainTextToken;
 
@@ -239,6 +241,8 @@ class AuthApiTest extends TestCase
 
     public function test_push_token_validates_required(): void
     {
+        $this->markTestSkipped('push-token (mobile-only) retirado — ver docs/auditoria-y-plan-api-agency.md');
+
         $user = $this->createUserWithTenant();
         $token = $user->createToken('test')->plainTextToken;
 
