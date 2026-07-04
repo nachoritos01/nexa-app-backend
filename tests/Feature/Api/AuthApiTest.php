@@ -196,6 +196,33 @@ class AuthApiTest extends TestCase
         $response->assertUnauthorized();
     }
 
+    public function test_expired_token_returns_401(): void
+    {
+        $user = $this->createUserWithTenant();
+        $token = $user->createToken('test')->plainTextToken;
+
+        // config('sanctum.expiration') = 7 días; pasada la ventana el token muere.
+        $this->travel(8)->days();
+
+        $response = $this->withToken($token)
+            ->getJson('/api/auth/me');
+
+        $response->assertUnauthorized();
+    }
+
+    public function test_token_within_expiration_window_still_works(): void
+    {
+        $user = $this->createUserWithTenant();
+        $token = $user->createToken('test')->plainTextToken;
+
+        $this->travel(6)->days();
+
+        $response = $this->withToken($token)
+            ->getJson('/api/auth/me');
+
+        $response->assertOk();
+    }
+
     // Logout tests
 
     public function test_logout_revokes_current_token(): void
