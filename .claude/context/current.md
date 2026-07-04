@@ -1,10 +1,25 @@
 # Current Development Context
 
-**Last Updated:** 2026-06-30
-**Branch:** feature/agency-full-domain (Agency API module — PR #3 open → develop, CI green)
+**Last Updated:** 2026-07-04
+**Branch:** feature/retire-public-v1-api (API surface pruning — waves 1+2 done, pending PR → develop). Also open: feature/sanctum-token-expiration (tokens expire after 7 days, committed, pending PR).
 **Latest Release:** v1.2.0
-**Tests:** 348 tests, 889 assertions — ALL PASSING (0 failures)
-**PHPStan:** Level 5, 0 errors (baseline regenerated 2026-06-30 → 88 larastan false positives incl. agency models)
+**Tests:** 366 tests, 994 assertions — ALL PASSING (0 failures, 0 skips)
+**PHPStan:** Level 5, 0 errors (baseline: removed stale V1/PaymentController entry)
+
+## API Surface Pruning (2026-07-04) — branch `feature/retire-public-v1-api`
+
+Executed `docs/auditoria-y-plan-api-agency.md` (Parte B, corrected 2026-07-04):
+- **Retired:** public surface (`/api` root, `/api/health`, public quotes, content), the whole
+  `/api/v1/*` group, `POST /auth/push-token`, `EnsureApiAccess`/`api.pro`.
+- **Kept (critical):** `/api/auth/login|me|logout` — the panel's login — moved OUT of the
+  `hasModule('api')` gate so `MODULE_API=false` can never switch it off. `AuthController` +
+  `LoginRequest` stay. Models, `App\Services\PdfGenerator`, Filament, portal, DB untouched
+  (zero migrations).
+- Tests: V1/health/push-token tests deleted; token/isolation coverage repointed from
+  `/api/v1/orders` to `/api/agency/clients` (`ApiTokenTest`, `TenantIsolationTest`).
+- Health checks: native `/up` only (Railway `railway.json` already pointed there).
+- Verified live: `/up` 200, login 422-validates, agency 401 w/o token, Filament 200,
+  portal `/my-account` 302, retired routes 404.
 
 ## Project State
 
