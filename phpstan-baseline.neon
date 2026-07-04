@@ -19,12 +19,6 @@ parameters:
 			path: app/Console/Commands/SendRetentionAlerts.php
 
 		-
-			message: '#^Parameter \#1 \$rules of method Filament\\Pages\\BasePage\:\:validate\(\) expects array\<string, array\<mixed\>\>\|null, array\<string, string\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Filament/Pages/ApiSettings.php
-
-		-
 			message: '#^Using nullsafe property access "\?\-\>plan" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
 			identifier: nullsafe.neverNull
 			count: 1

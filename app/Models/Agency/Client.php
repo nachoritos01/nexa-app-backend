@@ -5,13 +5,15 @@ namespace App\Models\Agency;
 use App\Models\Agency\Concerns\LogsAgencyActivity;
 use App\Models\Concerns\BelongsToTenant;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
     use BelongsToTenant;
-    use LogsAgencyActivity;
+    use HasFactory;
     use HasUuids;
+    use LogsAgencyActivity;
 
     protected $table = 'agency_clients';
 

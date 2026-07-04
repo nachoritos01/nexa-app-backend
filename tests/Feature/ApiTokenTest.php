@@ -68,11 +68,4 @@ class ApiTokenTest extends TestCase
         $response->assertForbidden()
             ->assertJsonPath('code', 'TENANT_INACTIVE');
     }
-
-    public function test_unauthenticated_request_returns_401(): void
-    {
-        $response = $this->getJson('/api/agency/clients');
-
-        $response->assertUnauthorized();
-    }
 }

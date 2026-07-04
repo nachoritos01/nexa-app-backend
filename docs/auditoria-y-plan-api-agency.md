@@ -410,11 +410,16 @@ Solo tras validar la Oleada 1. Borrar **archivos**, no modelos:
    `healthcheckPath`), no `/api/health`; `bootstrap/app.php:12` ya expone
    `health: '/up'`. → **Retirar `/api/health`**, salvo que un monitor externo (no
    visible en el repo) lo apunte — única confirmación que sigue pendiente.
-2. **`config/modules.php` flag `'api'` — RESUELTA:** hoy gatea **también el auth del
-   panel** (`MODULE_API=false` apagaría `/api/auth/login`) — razón adicional para mover
-   auth fuera del bloque en la Oleada 1. Hecho eso, el flag queda solo sobre V1 y al
-   borrar V1 queda sin uso: dejarlo (inocuo) o renombrar a `'agency_api'` si se quiere
-   un kill-switch del panel.
+2. **`config/modules.php` flag `'api'` — RESUELTA:** antes gateaba también el auth del
+   panel (`MODULE_API=false` apagaba `/api/auth/login`) — por eso en la Oleada 1 se movió
+   auth fuera del bloque. Tras borrar V1, el flag ya **no gatea ninguna ruta**, pero
+   **NO queda sin uso**: sigue controlando la visibilidad de la página Filament
+   `WebhookSettings` (`WebhookSettings.php:34`) — y controlaba `ApiSettings`, retirada en
+   este PR junto con la superficie V1 que documentaba. Cuidado: con `MODULE_API=false`
+   las rutas `/api/agency` y `/api/auth` siguen vivas y solo desaparece la página de
+   webhooks (cuyo feature SÍ está activo). Pendiente menor: renombrar el flag a
+   `'agency_api'`/`'webhooks'` o mover esa página a otro gate para que el nombre no
+   engañe. No lo toca este PR.
 3. **¿El panel consumía `/api/auth/login`? — RESUELTA: SÍ.** El panel obtiene su token
    Sanctum con `POST /api/auth/login` y cierra sesión con `POST /api/auth/logout`
    (`panel/lib/api.ts:182,195`); su RBAC depende del `user.role`/`permissions` de

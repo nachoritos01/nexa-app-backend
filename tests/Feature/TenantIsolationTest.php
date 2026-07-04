@@ -109,17 +109,8 @@ class TenantIsolationTest extends TestCase
     public function test_api_with_tenant_a_token_does_not_return_tenant_b_data(): void
     {
         // Runs over /api/agency (the only remaining API surface — V1 was retired).
-        foreach ([[$this->tenantA, 2], [$this->tenantB, 3]] as [$tenant, $count]) {
-            app()->instance('currentTenant', $tenant);
-            for ($i = 0; $i < $count; $i++) {
-                AgencyClient::create([
-                    'tenant_id' => $tenant->id,
-                    'name' => "Client {$tenant->name} {$i}",
-                    'status' => 'Activo',
-                    'pipeline_stage' => 'Lead',
-                ]);
-            }
-        }
+        AgencyClient::factory()->count(2)->create(['tenant_id' => $this->tenantA->id]);
+        AgencyClient::factory()->count(3)->create(['tenant_id' => $this->tenantB->id]);
 
         $tokenA = $this->userA->createToken('Test A');
         $tokenA->accessToken->update(['tenant_id' => $this->tenantA->id]);
